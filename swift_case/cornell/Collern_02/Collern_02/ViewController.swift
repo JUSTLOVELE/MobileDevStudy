@@ -52,6 +52,11 @@ class ViewController: UIViewController {
         view.addSubview(textView)
         
         setupConstraints()
+        test()
+    }
+    
+    private func test() {
+        
     }
     
     @objc func followButtonTapped() {
@@ -96,7 +101,4 @@ class ViewController: UIViewController {
             textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5)
         ])
     }
-
-
 }
-

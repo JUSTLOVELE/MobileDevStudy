@@ -12,9 +12,33 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var c:Int = 0
+    var _num : Int = 2
+    var num : Int {
+        get{
+            return _num
+        }
+        
+        set (newValue) {
+            if newValue >= 2 {
+           _num = newValue
+        } else {
+            print("error: cannot have family with less than 2 members")
+            c = 0
+            _num = 0
+        }
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        num = 5
+        print(num)
+        print(_num)
+        print(c)
+        
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = ViewController()
         window.rootViewController = viewController
