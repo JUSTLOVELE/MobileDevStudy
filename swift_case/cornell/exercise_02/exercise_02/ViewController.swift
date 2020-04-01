@@ -32,6 +32,10 @@ class ViewController: UIViewController {
     
     var button: UIButton!
     
+    var list: UILabel!
+    
+    var listView: UITextView!
+    
     //var quantityLabel: UILabel!
     
     override func viewDidLoad() {
@@ -54,11 +58,10 @@ class ViewController: UIViewController {
         groceryTextfield.translatesAutoresizingMaskIntoConstraints = false
         groceryTextfield.backgroundColor = .lightGray
         groceryTextfield.borderStyle = .roundedRect
-        groceryTextfield.becomeFirstResponder()
         
         quantityLabel = UILabel()
         quantityLabel.translatesAutoresizingMaskIntoConstraints = false
-        quantityLabel.text = "quantityLabel:"
+        quantityLabel.text = "quantity:"
         quantityLabel.textColor = .black
         quantityLabel.font = UIFont.systemFont(ofSize: 20)
         
@@ -72,13 +75,40 @@ class ViewController: UIViewController {
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(addTextView), for: .touchUpInside)
         
+        list = UILabel()
+        list.font = UIFont.boldSystemFont(ofSize: 24)
+        list.text = "Grocery List:"
+        list.textColor = .black
+        list.translatesAutoresizingMaskIntoConstraints = false
+        
+        listView = UITextView()
+        listView.font = UIFont.systemFont(ofSize: 20)
+        listView.backgroundColor = .lightGray
+        listView.isEditable = false
+        listView.textAlignment = .center
+        listView.translatesAutoresizingMaskIntoConstraints = false
+        listView.textColor = .black
+        listView.layer.cornerRadius = 20
+        listView.layer.masksToBounds = true
+        listView.becomeFirstResponder()
     
         view.addSubview(groceryLabel)
         view.addSubview(groceryTextfield)
         view.addSubview(quantityLabel)
         view.addSubview(quantityTextfield)
         view.addSubview(button)
+        view.addSubview(list)
+        view.addSubview(listView)
+    }
+    
+    @objc func addTextView() {
+        
+        let s:String = groceryTextfield.text! + ":" + quantityTextfield.text! + "\n"
+        listView.insertText(s)
+        groceryTextfield.text = ""
+        quantityTextfield.text = ""
     }
     
     func setupConstraints() {
@@ -113,6 +143,18 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: quantityLabel.bottomAnchor, constant: 50),
             button.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            list.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 50),
+            list.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            listView.topAnchor.constraint(equalTo: list.bottomAnchor, constant: 30),
+            listView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            listView.heightAnchor.constraint(equalToConstant: 400),
+            listView.widthAnchor.constraint(equalToConstant: 200)
         ])
         
     }
