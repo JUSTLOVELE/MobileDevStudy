@@ -6,13 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".DisplayMessageActivity">
 
-    <Button
-        android:id="@+id/displayButton"
+    <EditText
+        android:id="@+id/displayEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="320dp"
-        android:text="hello world"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="328dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
