@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--添加向上一级导航的功能-->
         <activity android:name=".DisplayMessageActivity"
             android:parentActivityName=".MainActivity"
             ></activity>
