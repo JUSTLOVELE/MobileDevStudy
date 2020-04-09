@@ -56,11 +56,15 @@ class ViewController: UIViewController {
     }
     
     @objc func pushNavViewController() {
+        
+        let vc = BlueViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     @objc func presentModalViewController() {
         
-        let vc = ModalViewController(delegate: self)
+        let vc = ModalViewController(delegate: self, titleString:  (presentModalViewControllerButton.titleLabel?.text)!)
         self.present(vc, animated: true, completion: nil)
     }
 }

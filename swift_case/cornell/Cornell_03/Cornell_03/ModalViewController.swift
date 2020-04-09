@@ -12,11 +12,13 @@ class ModalViewController: UIViewController {
     
     var button: UIButton!
     var textField: UITextField!
+    var titleString: String?
     
     weak var delegate: SaveNewNameProtocol?
     
-    init(delegate: SaveNewNameProtocol?) {
+    init(delegate: SaveNewNameProtocol?, titleString: String) {
         super.init(nibName: nil, bundle: nil)
+        self.titleString = titleString
         self.delegate = delegate
     }
     
@@ -30,7 +32,7 @@ class ModalViewController: UIViewController {
         
         textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        //textField.text = titleString
+        textField.placeholder = titleString
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .white
         textField.textAlignment = .center
