@@ -13,11 +13,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        //1.json解析
+        //2.http请求
+        //3.3des rsa加解密 调OC
        
         
     }
-
 
 }
 
