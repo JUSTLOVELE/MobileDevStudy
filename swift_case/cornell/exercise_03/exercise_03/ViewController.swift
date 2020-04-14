@@ -8,7 +8,12 @@
 
 import UIKit
 
-
+protocol EditName: class {
+    
+    func editRedName(name: String)
+    
+    func editBlueName(name: String)
+}
 
 class ViewController: UIViewController {
 
@@ -31,6 +36,7 @@ class ViewController: UIViewController {
         blueCircleArena.translatesAutoresizingMaskIntoConstraints = false
         blueCircleArena.setTitleColor(.blue, for: .normal)
         blueCircleArena.setTitle("Blue Circle Arena", for: .normal)
+        blueCircleArena.addTarget(self, action: #selector(openBlueView), for: .touchUpInside)
         
         view.addSubview(redSquareArena)
         view.addSubview(blueCircleArena)
@@ -52,11 +58,34 @@ class ViewController: UIViewController {
         ])
     }
     
-    @objc func openNewView() {
+    @objc func openBlueView() {
         
         let vc = SquareArenaViewController()
         vc.setSquareColor(color: .blue)
+        vc.isCorner(isCorner: true)
+        vc.saveName(newName: "Blue Circle Arena")
+        vc.setViewController(vc: self)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func openNewView() {
+        
+        let vc = SquareArenaViewController()
+        vc.setSquareColor(color: .red)
+        vc.isCorner(isCorner: false)
+        vc.setViewController(vc: self)
+        vc.saveName(newName: "Red Square Arena")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension ViewController: EditName {
+    func editRedName(name: String) {
+        redSquareArena.setTitle(name, for: .normal)
+    }
+    
+    func editBlueName(name: String) {
+        blueCircleArena.setTitle(name, for: .normal)
     }
 }
 
