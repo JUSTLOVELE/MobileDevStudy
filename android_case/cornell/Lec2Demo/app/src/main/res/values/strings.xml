@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Lec2Demo</string>
     <string name="button_text">randomize</string>
+    <string name="button_text_2">NewButtonText</string>
 </resources>
