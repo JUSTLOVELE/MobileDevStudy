@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     var blueCircleArena: UIButton!
     
+    var magicalArena: UIButton!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -38,8 +40,15 @@ class ViewController: UIViewController {
         blueCircleArena.setTitle("Blue Circle Arena", for: .normal)
         blueCircleArena.addTarget(self, action: #selector(openBlueView), for: .touchUpInside)
         
+        magicalArena = UIButton()
+        magicalArena.translatesAutoresizingMaskIntoConstraints = false
+        magicalArena.setTitle("magicalArena", for: .normal)
+        magicalArena.setTitleColor(.black, for: .normal)
+        magicalArena.addTarget(self, action: #selector(openMagicalView), for: .touchUpInside)
+        
         view.addSubview(redSquareArena)
         view.addSubview(blueCircleArena)
+        view.addSubview(magicalArena)
         setupConstraints()
     }
     
@@ -56,6 +65,18 @@ class ViewController: UIViewController {
             blueCircleArena.topAnchor.constraint(equalTo: redSquareArena.bottomAnchor, constant: 16),
             blueCircleArena.heightAnchor.constraint(equalToConstant: 24)
         ])
+        
+        NSLayoutConstraint.activate([
+            magicalArena.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            magicalArena.topAnchor.constraint(equalTo: blueCircleArena.bottomAnchor, constant: 16),
+            magicalArena.heightAnchor.constraint(equalToConstant: 24)
+        ])
+    }
+    
+    @objc func openMagicalView() {
+        
+        let vc = MagicalViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func openBlueView() {
