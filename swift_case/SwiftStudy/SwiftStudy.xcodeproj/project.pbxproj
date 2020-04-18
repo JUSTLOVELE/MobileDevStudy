@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADE6C14C2449E82100DE0AF6 /* DiningHallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */; };
+		ADE6C14E2449F14F00DE0AF6 /* DiningHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6C14D2449F14F00DE0AF6 /* DiningHall.swift */; };
 		ADF930F324444F7F000A4786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF930F224444F7F000A4786 /* AppDelegate.swift */; };
 		ADF930F524444F7F000A4786 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF930F424444F7F000A4786 /* SceneDelegate.swift */; };
 		ADF930F724444F7F000A4786 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF930F624444F7F000A4786 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallTableViewCell.swift; sourceTree = "<group>"; };
+		ADE6C14D2449F14F00DE0AF6 /* DiningHall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHall.swift; sourceTree = "<group>"; };
 		ADF930EF24444F7F000A4786 /* SwiftStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF930F224444F7F000A4786 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF930F424444F7F000A4786 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADE6C14A2449E7D100DE0AF6 /* UITable */ = {
+			isa = PBXGroup;
+			children = (
+				ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */,
+				ADE6C14D2449F14F00DE0AF6 /* DiningHall.swift */,
+			);
+			path = UITable;
+			sourceTree = "<group>";
+		};
 		ADF930E624444F7F000A4786 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +69,7 @@
 		ADF930F124444F7F000A4786 /* SwiftStudy */ = {
 			isa = PBXGroup;
 			children = (
+				ADE6C14A2449E7D100DE0AF6 /* UITable */,
 				ADF930F224444F7F000A4786 /* AppDelegate.swift */,
 				ADF930F424444F7F000A4786 /* SceneDelegate.swift */,
 				ADF930F624444F7F000A4786 /* ViewController.swift */,
@@ -138,7 +152,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADE6C14E2449F14F00DE0AF6 /* DiningHall.swift in Sources */,
 				ADF930F724444F7F000A4786 /* ViewController.swift in Sources */,
+				ADE6C14C2449E82100DE0AF6 /* DiningHallTableViewCell.swift in Sources */,
 				ADF930F324444F7F000A4786 /* AppDelegate.swift in Sources */,
 				ADF930F524444F7F000A4786 /* SceneDelegate.swift in Sources */,
 			);
