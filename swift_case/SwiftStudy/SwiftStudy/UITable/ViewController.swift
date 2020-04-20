@@ -66,6 +66,7 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as!DiningHallTableViewCell
         let diningHall = diningHalls[indexPath.row]
         //cell.nameLabel = diningHall.name
+        cell.selectionStyle = .none
         cell.configure(for: diningHall)
         
         return cell
@@ -76,5 +77,18 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        let diningHall = diningHalls[indexPath.row]
+        diningHall.isFavorite.toggle()
+        print("IsFavorite? \(diningHall.isFavorite)")
+        
+        
+        let cell = tableView.cellForRow(at: indexPath)as! DiningHallTableViewCell
+        cell.toggleImageView()
+    
+    
     }
 }

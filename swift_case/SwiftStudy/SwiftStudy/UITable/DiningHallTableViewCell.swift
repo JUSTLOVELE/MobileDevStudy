@@ -20,7 +20,7 @@ class DiningHallTableViewCell: UITableViewCell {
        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         nameLabel = UILabel()
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
         
@@ -40,23 +40,27 @@ class DiningHallTableViewCell: UITableViewCell {
     
     func setupConstraints() {
        
+        let padding: CGFloat = 8
+        let labelHeight: CGFloat = 16
+        let heartimageLength:CGFloat = 25
+        
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            nameLabel.heightAnchor.constraint(equalToConstant: 16)
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            nameLabel.heightAnchor.constraint(equalToConstant: labelHeight)
         ])
         
         NSLayoutConstraint.activate([
             ratingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             ratingLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            ratingLabel.heightAnchor.constraint(equalToConstant: 16)
+            ratingLabel.heightAnchor.constraint(equalToConstant: labelHeight)
         ])
         
         NSLayoutConstraint.activate([
-            heartImageView.heightAnchor.constraint(equalToConstant: 25),
-            heartImageView.widthAnchor.constraint(equalToConstant: 25),
+            heartImageView.heightAnchor.constraint(equalToConstant: heartimageLength),
+            heartImageView.widthAnchor.constraint(equalToConstant: heartimageLength),
             heartImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            heartImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
+            heartImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding)
         ])
     }
     
@@ -65,6 +69,10 @@ class DiningHallTableViewCell: UITableViewCell {
         nameLabel.text = diningHall.name
         ratingLabel.text = "Rating: \(diningHall.getRatingString())"
         heartImageView.isHidden = !diningHall.isFavorite
+    }
+    
+    func toggleImageView() {
+        heartImageView.isHidden.toggle()
     }
     
     required init?(coder: NSCoder) {

@@ -58,6 +58,7 @@
 		ADE6C14A2449E7D100DE0AF6 /* UITable */ = {
 			isa = PBXGroup;
 			children = (
+				ADF930F624444F7F000A4786 /* ViewController.swift */,
 				ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */,
 				ADE6C14D2449F14F00DE0AF6 /* DiningHall.swift */,
 			);
@@ -87,7 +88,6 @@
 				ADE6C14A2449E7D100DE0AF6 /* UITable */,
 				ADF930F224444F7F000A4786 /* AppDelegate.swift */,
 				ADF930F424444F7F000A4786 /* SceneDelegate.swift */,
-				ADF930F624444F7F000A4786 /* ViewController.swift */,
 				ADF930FB24444F81000A4786 /* Assets.xcassets */,
 				ADF930FD24444F81000A4786 /* LaunchScreen.storyboard */,
 				ADF9310024444F81000A4786 /* Info.plist */,
