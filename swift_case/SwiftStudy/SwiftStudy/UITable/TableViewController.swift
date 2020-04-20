@@ -1,17 +1,14 @@
 //
-//  ViewController.swift
+//  TableViewController.swift
 //  SwiftStudy
 //
-//  Created by 杨祖亮 on 2020/4/13.
+//  Created by 杨祖亮 on 2020/4/20.
 //  Copyright © 2020 杨祖亮. All rights reserved.
 //
 
 import UIKit
 
-//1.json解析
-//2.http请求
-//3.3des rsa加解密 调OC
-class ViewController: UIViewController {
+class TableViewController: ViewController {
     
     var tableView: UITableView!
     
@@ -20,7 +17,7 @@ class ViewController: UIViewController {
     let cellHeight: CGFloat = 50
     
     var diningHalls: [DiningHall]!
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -55,7 +52,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return diningHalls.count
@@ -73,14 +70,14 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension TableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         let diningHall = diningHalls[indexPath.row]
         diningHall.isFavorite.toggle()
         print("IsFavorite? \(diningHall.isFavorite)")
@@ -88,7 +85,7 @@ extension ViewController: UITableViewDelegate {
         
         let cell = tableView.cellForRow(at: indexPath)as! DiningHallTableViewCell
         cell.toggleImageView()
-    
-    
+        
+        
     }
 }

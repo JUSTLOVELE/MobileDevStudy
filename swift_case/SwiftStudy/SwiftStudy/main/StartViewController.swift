@@ -26,7 +26,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         title = "swift study case"
         view.backgroundColor = .white
-        let cornell_ch04 = StudyCaseModel(name: "corenll ch04 lecture UITableViewStudyCase", vc: ViewController())
+        let cornell_ch04 = StudyCaseModel(name: "corenll ch04 lecture UITableViewStudyCase", vc: TableViewController())
         studyCaseModel = [cornell_ch04]
         
         tableView = UITableView()
