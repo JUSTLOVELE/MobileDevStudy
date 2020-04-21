@@ -12,6 +12,14 @@
 		AD2F6A3D244B604400C69728 /* StartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2F6A3C244B604400C69728 /* StartTableViewCell.swift */; };
 		AD32BB07244D9A1A008D92CA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32BB06244D9A1A008D92CA /* TableViewController.swift */; };
 		AD32BB09244D9AE3008D92CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32BB08244D9AE3008D92CA /* ViewController.swift */; };
+		AD32BB0C244D9C2C008D92CA /* Cornell02ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32BB0B244D9C2C008D92CA /* Cornell02ViewController.swift */; };
+		AD554B24244EF6A20019196A /* Cornell02ExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B23244EF6A20019196A /* Cornell02ExViewController.swift */; };
+		AD554B27244EF7AC0019196A /* NavigationMVCandDelegationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B26244EF7AC0019196A /* NavigationMVCandDelegationViewController.swift */; };
+		AD554B29244EF7FD0019196A /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B28244EF7FD0019196A /* ModalViewController.swift */; };
+		AD554B2B244EF80C0019196A /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B2A244EF80C0019196A /* BlueViewController.swift */; };
+		AD554B2F244EF9000019196A /* NavigationMVCandDelegationExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B2E244EF9000019196A /* NavigationMVCandDelegationExViewController.swift */; };
+		AD554B31244EF9430019196A /* MagicalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B30244EF9430019196A /* MagicalViewController.swift */; };
+		AD554B33244EF9680019196A /* SquareArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B32244EF9680019196A /* SquareArenaViewController.swift */; };
 		ADE6C14C2449E82100DE0AF6 /* DiningHallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */; };
 		ADE6C14E2449F14F00DE0AF6 /* DiningHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6C14D2449F14F00DE0AF6 /* DiningHall.swift */; };
 		ADF930F324444F7F000A4786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF930F224444F7F000A4786 /* AppDelegate.swift */; };
@@ -26,6 +34,14 @@
 		AD2F6A3C244B604400C69728 /* StartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTableViewCell.swift; sourceTree = "<group>"; };
 		AD32BB06244D9A1A008D92CA /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AD32BB08244D9AE3008D92CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AD32BB0B244D9C2C008D92CA /* Cornell02ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornell02ViewController.swift; sourceTree = "<group>"; };
+		AD554B23244EF6A20019196A /* Cornell02ExViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornell02ExViewController.swift; sourceTree = "<group>"; };
+		AD554B26244EF7AC0019196A /* NavigationMVCandDelegationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMVCandDelegationViewController.swift; sourceTree = "<group>"; };
+		AD554B28244EF7FD0019196A /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		AD554B2A244EF80C0019196A /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
+		AD554B2E244EF9000019196A /* NavigationMVCandDelegationExViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMVCandDelegationExViewController.swift; sourceTree = "<group>"; };
+		AD554B30244EF9430019196A /* MagicalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicalViewController.swift; sourceTree = "<group>"; };
+		AD554B32244EF9680019196A /* SquareArenaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareArenaViewController.swift; sourceTree = "<group>"; };
 		ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallTableViewCell.swift; sourceTree = "<group>"; };
 		ADE6C14D2449F14F00DE0AF6 /* DiningHall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHall.swift; sourceTree = "<group>"; };
 		ADF930EF24444F7F000A4786 /* SwiftStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +74,42 @@
 			path = main;
 			sourceTree = "<group>";
 		};
+		AD32BB0A244D9BD2008D92CA /* cornell_02 */ = {
+			isa = PBXGroup;
+			children = (
+				AD32BB0B244D9C2C008D92CA /* Cornell02ViewController.swift */,
+			);
+			path = cornell_02;
+			sourceTree = "<group>";
+		};
+		AD554B22244EF67C0019196A /* cornell_02_ex */ = {
+			isa = PBXGroup;
+			children = (
+				AD554B23244EF6A20019196A /* Cornell02ExViewController.swift */,
+			);
+			path = cornell_02_ex;
+			sourceTree = "<group>";
+		};
+		AD554B25244EF7890019196A /* cornell_03 */ = {
+			isa = PBXGroup;
+			children = (
+				AD554B26244EF7AC0019196A /* NavigationMVCandDelegationViewController.swift */,
+				AD554B28244EF7FD0019196A /* ModalViewController.swift */,
+				AD554B2A244EF80C0019196A /* BlueViewController.swift */,
+			);
+			path = cornell_03;
+			sourceTree = "<group>";
+		};
+		AD554B2C244EF8B40019196A /* cornell_03_ex */ = {
+			isa = PBXGroup;
+			children = (
+				AD554B2E244EF9000019196A /* NavigationMVCandDelegationExViewController.swift */,
+				AD554B30244EF9430019196A /* MagicalViewController.swift */,
+				AD554B32244EF9680019196A /* SquareArenaViewController.swift */,
+			);
+			path = cornell_03_ex;
+			sourceTree = "<group>";
+		};
 		ADE6C14A2449E7D100DE0AF6 /* UITable */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +139,10 @@
 		ADF930F124444F7F000A4786 /* SwiftStudy */ = {
 			isa = PBXGroup;
 			children = (
+				AD554B2C244EF8B40019196A /* cornell_03_ex */,
+				AD554B25244EF7890019196A /* cornell_03 */,
+				AD554B22244EF67C0019196A /* cornell_02_ex */,
+				AD32BB0A244D9BD2008D92CA /* cornell_02 */,
 				AD2F6A37244B5EFE00C69728 /* main */,
 				ADE6C14A2449E7D100DE0AF6 /* UITable */,
 				ADF930F224444F7F000A4786 /* AppDelegate.swift */,
@@ -168,14 +224,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD32BB0C244D9C2C008D92CA /* Cornell02ViewController.swift in Sources */,
+				AD554B27244EF7AC0019196A /* NavigationMVCandDelegationViewController.swift in Sources */,
 				ADE6C14E2449F14F00DE0AF6 /* DiningHall.swift in Sources */,
+				AD554B31244EF9430019196A /* MagicalViewController.swift in Sources */,
 				ADE6C14C2449E82100DE0AF6 /* DiningHallTableViewCell.swift in Sources */,
 				ADF930F324444F7F000A4786 /* AppDelegate.swift in Sources */,
 				AD32BB09244D9AE3008D92CA /* ViewController.swift in Sources */,
+				AD554B2B244EF80C0019196A /* BlueViewController.swift in Sources */,
 				AD2F6A3D244B604400C69728 /* StartTableViewCell.swift in Sources */,
 				AD2F6A3B244B5FD600C69728 /* StudyCaseModel.swift in Sources */,
 				ADF930F524444F7F000A4786 /* SceneDelegate.swift in Sources */,
+				AD554B33244EF9680019196A /* SquareArenaViewController.swift in Sources */,
+				AD554B29244EF7FD0019196A /* ModalViewController.swift in Sources */,
 				AD32BB07244D9A1A008D92CA /* TableViewController.swift in Sources */,
+				AD554B2F244EF9000019196A /* NavigationMVCandDelegationExViewController.swift in Sources */,
+				AD554B24244EF6A20019196A /* Cornell02ExViewController.swift in Sources */,
 				AD2F6A39244B5F7900C69728 /* StartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

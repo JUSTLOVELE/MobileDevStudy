@@ -11,6 +11,7 @@ import UIKit
 //1.json解析
 //2.http请求
 //3.3des rsa加解密 调OC
+//03、ex03
 class StartViewController: UIViewController {
     
     var tableView: UITableView!
@@ -26,9 +27,18 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         title = "swift study case"
         view.backgroundColor = .white
-        let cornell_ch04 = StudyCaseModel(name: "corenll ch04 lecture UITableViewStudyCase", vc: TableViewController())
-        studyCaseModel = [cornell_ch04]
+        let cornell_ch02 = StudyCaseModel(name: "corenll ch02 lecture UIKit and AutoLayout", vc:Cornell02ViewController())
+        let cornell_ch02_ex = StudyCaseModel(name: "corenll ch02 ex UIKit and AutoLayout", vc:Cornell02ExViewController())
+        let cornell_ch03 = StudyCaseModel(name: "corenll ch03 lecture Navigation, MVC, and Delegation", vc:NavigationMVCandDelegationViewController())
         
+        let cornell_ch03_ex = StudyCaseModel(name: "corenll ch03 ex Navigation, MVC, and Delegation", vc:NavigationMVCandDelegationExViewController())
+        
+        let cornell_ch04 = StudyCaseModel(name: "corenll ch04 lecture UITableViewStudyCase", vc: TableViewController())
+        studyCaseModel = [cornell_ch02,
+                          cornell_ch02_ex,
+                          cornell_ch03,
+                          cornell_ch03_ex,
+                          cornell_ch04]
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(StartTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
