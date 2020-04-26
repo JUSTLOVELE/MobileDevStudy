@@ -29,7 +29,12 @@ public class PaymentController {
 		}
 	}
 	
-	@GetMapping(value = "/payment/getParamById{id}")
+	/**
+	 * 访问方法:http://localhost:8001/cloud-provider-payment/payment/get/tt
+	 * @param id
+	 * @return
+	 */
+	@GetMapping(value = "/payment/get/{id}")
 	public CommonResult getParamById(@PathVariable("id") String id) {
 		
 		Payment p = paymentService.getPaymentById(id);

@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.springcloud.dao.PaymentDao">
-	<insert id="create" parameterType="Payment">
+	<insert id="create" parameterType="com.springcloud.entities.Payment">
 		insert into payment(id, serial) values(#{id}, #{serial});
 	</insert>
 	
 	<resultMap id="BaseResultMap" type="com.springcloud.entities.Payment">
-		<id column="id" property="id" jdbcType="varchar"></id>
-		<id column="serial" property="serial" jdbcType="varchar"></id>
+		<id column="id" property="id" jdbcType="VARCHAR"></id>
+		<id column="serial" property="serial" jdbcType="VARCHAR"></id>
 	</resultMap>
-    <select id="getPaymentById" parameterType="String" resultMap="BaseResultMap">
+    <select id="getPaymentById" parameterType="java.lang.String" resultMap="BaseResultMap">
         select * from `payment` where id = #{id}
     </select>
 </mapper>
