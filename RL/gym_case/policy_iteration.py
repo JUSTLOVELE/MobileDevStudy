@@ -26,10 +26,11 @@ def evaluate_policy(env, policy, gamma = 1.0, n = 100):
     return np.mean(scores)
 
 
-def policy_evaluation(env, gamma, theta, V, policy):
+def policy_evaluation(env, gamma, theta, V, policy, index):
     # 2.策略估计
     while True:
         delta = 0
+        index += 1
         prev_v = np.copy(V)
         for s in range(env.observation_space.n):
             action = policy[s]
@@ -43,7 +44,7 @@ def policy_evaluation(env, gamma, theta, V, policy):
                 delta = abs(V[s] - prev_v[s])
 
         if delta < theta:
-            return V
+            return V, index
 
 def police_improvement(env, gamma, V, old_policy, policy_stable=True):
     # 3.策略改进
@@ -71,7 +72,7 @@ def policy_Iteration(env, gamma):
     while True:
         index += 1
         # 2.策略估计
-        V = policy_evaluation(env=env, gamma=gamma, theta=theta, V=V, policy=policy)
+        V, index = policy_evaluation(env=env, gamma=gamma, theta=theta, V=V, policy=policy, index=index)
         # 3.策略改进
         new_policy, policy_stable = police_improvement(env=env, gamma=gamma, V=V, old_policy=policy)
 

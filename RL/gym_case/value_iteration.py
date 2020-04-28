@@ -27,9 +27,11 @@ env.reset()
 gamma = 1.0
 theta = 1e-20
 V = np.zeros(env.observation_space.n)
+index = 0
 
 while True:
     delta = 0
+    index += 1
     #pre_V = np.copy(V)
     for s in range(env.observation_space.n):
         v = V[s]
@@ -56,6 +58,7 @@ for s in range(env.observation_space.n):
 print(optimal_policy)
 scores = evaluate_policy(env, optimal_policy, gamma=1.0)
 print('Average scores = ', np.mean(scores))
+print(index)
 
 
 

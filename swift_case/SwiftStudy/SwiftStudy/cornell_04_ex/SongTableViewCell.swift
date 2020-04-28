@@ -16,6 +16,8 @@ class SongTableViewCell: UITableViewCell {
     
     var albumLabel: UILabel!
     
+    var editButton: UIButton!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,6 +35,13 @@ class SongTableViewCell: UITableViewCell {
         albumLabel.font = UIFont.systemFont(ofSize: 16)
         albumLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(albumLabel)
+        
+        editButton = UIButton()
+        editButton.translatesAutoresizingMaskIntoConstraints = false
+        editButton.setTitleColor(.black, for: .normal)
+        editButton.setTitle("修改", for: .normal)
+        contentView.addSubview(editButton)
+        
         setupConstraints()
     }
     
@@ -57,6 +66,12 @@ class SongTableViewCell: UITableViewCell {
             songNameLabel.topAnchor.constraint(equalTo: albumLabel.bottomAnchor, constant: padding),
             songNameLabel.leadingAnchor.constraint(equalTo: artistNameLabel.trailingAnchor, constant: padding),
             songNameLabel.heightAnchor.constraint(equalToConstant: labelHeight)
+        ])
+        
+        NSLayoutConstraint.activate([
+            editButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
+            editButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            editButton.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
