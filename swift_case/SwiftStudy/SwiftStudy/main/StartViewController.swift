@@ -34,11 +34,15 @@ class StartViewController: UIViewController {
         let cornell_ch03_ex = StudyCaseModel(name: "corenll ch03 ex Navigation, MVC, and Delegation", vc:NavigationMVCandDelegationExViewController())
         
         let cornell_ch04 = StudyCaseModel(name: "corenll ch04 lecture UITableViewStudyCase", vc: TableViewController())
+        let cornell_ch04_ex = StudyCaseModel(name:"corenll ch04 ex UITableViewStudyCase", vc: TableViewEx04ViewController())
+        
         studyCaseModel = [cornell_ch02,
                           cornell_ch02_ex,
                           cornell_ch03,
                           cornell_ch03_ex,
-                          cornell_ch04]
+                          cornell_ch04,
+                          cornell_ch04_ex
+        ]
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(StartTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)

@@ -20,6 +20,9 @@
 		AD554B2F244EF9000019196A /* NavigationMVCandDelegationExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B2E244EF9000019196A /* NavigationMVCandDelegationExViewController.swift */; };
 		AD554B31244EF9430019196A /* MagicalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B30244EF9430019196A /* MagicalViewController.swift */; };
 		AD554B33244EF9680019196A /* SquareArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD554B32244EF9680019196A /* SquareArenaViewController.swift */; };
+		AD96F4902456E7EA002108EB /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD96F48F2456E7EA002108EB /* SongTableViewCell.swift */; };
+		ADA2F7722456BFDD00B5ED7A /* TableViewEx04ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA2F7712456BFDD00B5ED7A /* TableViewEx04ViewController.swift */; };
+		ADA2F7742456C12100B5ED7A /* SongEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA2F7732456C12100B5ED7A /* SongEntity.swift */; };
 		ADE6C14C2449E82100DE0AF6 /* DiningHallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */; };
 		ADE6C14E2449F14F00DE0AF6 /* DiningHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6C14D2449F14F00DE0AF6 /* DiningHall.swift */; };
 		ADF930F324444F7F000A4786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF930F224444F7F000A4786 /* AppDelegate.swift */; };
@@ -42,6 +45,9 @@
 		AD554B2E244EF9000019196A /* NavigationMVCandDelegationExViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMVCandDelegationExViewController.swift; sourceTree = "<group>"; };
 		AD554B30244EF9430019196A /* MagicalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicalViewController.swift; sourceTree = "<group>"; };
 		AD554B32244EF9680019196A /* SquareArenaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareArenaViewController.swift; sourceTree = "<group>"; };
+		AD96F48F2456E7EA002108EB /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		ADA2F7712456BFDD00B5ED7A /* TableViewEx04ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewEx04ViewController.swift; sourceTree = "<group>"; };
+		ADA2F7732456C12100B5ED7A /* SongEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongEntity.swift; sourceTree = "<group>"; };
 		ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallTableViewCell.swift; sourceTree = "<group>"; };
 		ADE6C14D2449F14F00DE0AF6 /* DiningHall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHall.swift; sourceTree = "<group>"; };
 		ADF930EF24444F7F000A4786 /* SwiftStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,16 @@
 			path = cornell_03_ex;
 			sourceTree = "<group>";
 		};
+		ADA2F7702456BF8C00B5ED7A /* cornell_04_ex */ = {
+			isa = PBXGroup;
+			children = (
+				ADA2F7712456BFDD00B5ED7A /* TableViewEx04ViewController.swift */,
+				ADA2F7732456C12100B5ED7A /* SongEntity.swift */,
+				AD96F48F2456E7EA002108EB /* SongTableViewCell.swift */,
+			);
+			path = cornell_04_ex;
+			sourceTree = "<group>";
+		};
 		ADE6C14A2449E7D100DE0AF6 /* UITable */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +155,7 @@
 		ADF930F124444F7F000A4786 /* SwiftStudy */ = {
 			isa = PBXGroup;
 			children = (
+				ADA2F7702456BF8C00B5ED7A /* cornell_04_ex */,
 				AD554B2C244EF8B40019196A /* cornell_03_ex */,
 				AD554B25244EF7890019196A /* cornell_03 */,
 				AD554B22244EF67C0019196A /* cornell_02_ex */,
@@ -225,15 +242,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD32BB0C244D9C2C008D92CA /* Cornell02ViewController.swift in Sources */,
+				ADA2F7722456BFDD00B5ED7A /* TableViewEx04ViewController.swift in Sources */,
 				AD554B27244EF7AC0019196A /* NavigationMVCandDelegationViewController.swift in Sources */,
 				ADE6C14E2449F14F00DE0AF6 /* DiningHall.swift in Sources */,
 				AD554B31244EF9430019196A /* MagicalViewController.swift in Sources */,
 				ADE6C14C2449E82100DE0AF6 /* DiningHallTableViewCell.swift in Sources */,
 				ADF930F324444F7F000A4786 /* AppDelegate.swift in Sources */,
+				ADA2F7742456C12100B5ED7A /* SongEntity.swift in Sources */,
 				AD32BB09244D9AE3008D92CA /* ViewController.swift in Sources */,
 				AD554B2B244EF80C0019196A /* BlueViewController.swift in Sources */,
 				AD2F6A3D244B604400C69728 /* StartTableViewCell.swift in Sources */,
 				AD2F6A3B244B5FD600C69728 /* StudyCaseModel.swift in Sources */,
+				AD96F4902456E7EA002108EB /* SongTableViewCell.swift in Sources */,
 				ADF930F524444F7F000A4786 /* SceneDelegate.swift in Sources */,
 				AD554B33244EF9680019196A /* SquareArenaViewController.swift in Sources */,
 				AD554B29244EF7FD0019196A /* ModalViewController.swift in Sources */,
