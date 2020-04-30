@@ -119,5 +119,6 @@
 		<module>cloud-provider-payment8001</module>
 		<module>cloud-consumer-order80</module>
 		<module>cloud-api-common</module>
+		<module>cloud-eureka-server-7001</module>
 	</modules>
 </project>
