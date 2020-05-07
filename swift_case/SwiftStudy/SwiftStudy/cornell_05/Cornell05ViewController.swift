@@ -31,9 +31,11 @@ class Cornell05ViewController: ViewController {
 
         title = "Photos"
         view.backgroundColor = .white
-        people = [bill, melinda,bill, melinda,bill, melinda,bill, melinda,bill, melinda]
+        people = [bill, melinda,bill, melinda,bill, melinda,bill, melinda,bill, melinda, bill, melinda,bill, melinda,bill, melinda,bill, melinda,bill, melinda]
         
         let layout = UICollectionViewFlowLayout()
+        //水平滚动或者垂直滚动
+        //layout.scrollDirection = .horizontal
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = padding
         layout.minimumInteritemSpacing = padding
