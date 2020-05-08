@@ -50,7 +50,7 @@ def police_improvement(env, gamma, V, old_policy, policy_stable=True):
     # 3.策略改进
     policy = np.zeros(env.observation_space.n)
     for s in range(env.observation_space.n):
-        old_action = policy[s]
+        #old_action = policy[s]
         q_value = np.zeros(env.action_space.n)
         for action in range(env.action_space.n):
             for p, s_next, r, _ in env.env.P[s][action]:
