@@ -23,6 +23,8 @@ mybatis:
   type-aliases-package: com.springcloud.entities
   
 eureka:
+  instace:
+    instance-id: payment8001
   client:
     #表示是否将自己注册进eurekaServer默认为true
     register-with-eureka: true
