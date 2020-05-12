@@ -1,8 +1,12 @@
 package com.springcloud.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,11 +17,16 @@ import com.springcloud.entities.CommonResult;
 import com.springcloud.entities.Payment;
 import com.springcloud.service.PaymentService;
 
+import net.bytebuddy.asm.Advice.This;
+
 @RestController
 public class PaymentController {
 
 	@Resource
 	private PaymentService paymentService;
+	
+	@Resource
+	private DiscoveryClient discoveryClient;
 	
 	@Value("${server.port}")
 	private String serverPort;
@@ -49,5 +58,23 @@ public class PaymentController {
 		}else {
 			return new CommonResult(444, "查詢失敗:id=" + id);
 		}
+	}
+	
+	@GetMapping(value = "/payment/discovery")
+	public Object discovery() {
+		
+		List<String> services = discoveryClient.getServices();
+		
+		for(String element: services) {
+			System.out.println(" element: " + element);
+		}
+		
+		List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-PAYMENT");
+		
+		for(ServiceInstance instance: instances) {
+			System.out.println(instance.getServiceId() + "\t" + instance.getHost() + "\t" + instance.getPort() + "\t" + instance.getUri());
+		}
+		
+		return this.discoveryClient;
 	}
 }
