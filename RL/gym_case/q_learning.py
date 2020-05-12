@@ -64,12 +64,8 @@ for i in range(iter_max):
         total_reward += reward
         #update q table
         a_, b_ = obs_to_state(env, obs)
-
-        if np.random.uniform(0, 1) < eps:
-            action_ = np.random.choice(env.action_space.n)
-        else:
-            action_ = np.argmax(q_table[a_][b_])
-        q_table[a][b][action] = q_table[a][b][action] + eta * (reward + gamma *  q_table[a_][b_][action_] - q_table[a][b][action]) 
+        #关键就是这一行跟sarsa的不同
+        q_table[a][b][action] = q_table[a][b][action] + eta * (reward + gamma *  np.max(q_table[a_][b_]) - q_table[a][b][action])
         
         if done:
             break
