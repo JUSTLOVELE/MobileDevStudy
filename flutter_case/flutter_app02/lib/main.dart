@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'index/index.dart';
 
-void main() => runApp(new Zhihu());
+void main() {
+  runApp(MyApp());
+}
 
-class Zhihu extends StatelessWidget {
-
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '高仿',
+      home: new Scaffold(
 
-    return new MaterialApp(
-      title: "高仿",
-      home: new Index(),
+        appBar: new AppBar(title: Text("wel"),),
+      ),
     );
   }
 }

@@ -1,4 +1,4 @@
-package com.yzl.flutter_app02
+package com.example.flutter_app02
 
 import io.flutter.embedding.android.FlutterActivity
 
