@@ -46,7 +46,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               color: _BottomNavigationColor,
             ),
             title: Text(
-              'email',
+              '滑动效果',
               style: TextStyle(color: _BottomNavigationColor),
             )),
         BottomNavigationBarItem(
@@ -55,7 +55,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               color: _BottomNavigationColor,
             ),
             title: Text(
-              'pages',
+              '页面状态',
               style: TextStyle(color: _BottomNavigationColor),
             )),
         BottomNavigationBarItem(
