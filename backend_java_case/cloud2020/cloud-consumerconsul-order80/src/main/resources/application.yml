@@ -1,0 +1,29 @@
+spring:
+  mvc:
+    date-format: yyyy-MM-dd
+  application:
+    name: cloud-consumer-order
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery: 
+        service-name: ${spring.application.name}
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.52.117.118:3306/gsw_test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+    username: gsw
+    password: jkkjgsw
+    dbcp2:
+      min-idle: 3
+      initial-size: 3
+      max-total: 20
+      max-wait-millis: 333
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+server:
+  port: 80
