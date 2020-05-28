@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!--添加向上一级导航的功能-->
-        <activity android:name=".DisplayMessageActivity"
-            android:parentActivityName=".MainActivity"
-            ></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
