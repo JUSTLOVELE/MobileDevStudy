@@ -21,7 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window.rootViewController = viewController
 //        window.makeKeyAndVisible()
 //        self.window = window
-        
+        let userDefaults = UserDefaults.standard
+        userDefaults.register(defaults: [
+            Constants.UserDefaults.name: "yangzl",
+            Constants.UserDefaults.username: "just_love_le",
+            Constants.UserDefaults.email: "694105388@qq.com",
+            Constants.UserDefaults.lastUpdated: Date(),
+            Constants.UserDefaults.color: 0,
+            Constants.UserDefaults.favoriteSong: Data()
+        ])
         
         return true
     }

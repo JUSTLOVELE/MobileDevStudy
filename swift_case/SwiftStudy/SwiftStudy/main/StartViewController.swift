@@ -34,6 +34,7 @@ class StartViewController: UIViewController {
         let cornell_ch04 = StudyCaseModel(name: "corenll ch04 lecture UITableViewStudyCase", vc: TableViewController())
         let cornell_ch04_ex = StudyCaseModel(name:"corenll ch04 ex UITableViewStudyCase", vc: TableViewEx04ViewController())
         let cornell_ch05 = StudyCaseModel(name:"corenll ch05 UICollectionViews", vc: Cornell05ViewController())
+        let cornell_ch08 = StudyCaseModel(name:"corenll ch08 缓存 & 持久化", vc: Cornell08ViewController())
         
         studyCaseModel = [cornell_ch02,
                           cornell_ch02_ex,
@@ -41,7 +42,8 @@ class StartViewController: UIViewController {
                           cornell_ch03_ex,
                           cornell_ch04,
                           cornell_ch04_ex,
-                          cornell_ch05
+                          cornell_ch05,
+                          cornell_ch08
         ]
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
