@@ -63,7 +63,59 @@ class _FollowState extends State<Follow> {
           //   },
           // ));
         }, 
-        //child: null
+        child: new Column(
+          children: <Widget>[
+            new Container(
+              child: new Row(
+                children: <Widget>[
+                  new Container(
+                    child: new CircleAvatar(
+                        backgroundImage: new NetworkImage(article.headUrl),
+                        radius: 11.0
+                    ),
+                  ),
+                  new Text("  " + article.user + " " + article.action + " · " + article.time, style: new TextStyle(color: GlobalConfig.fontColor))
+                ],
+              ),
+              padding: const EdgeInsets.only(top: 10.0),
+            ),
+            new Container(
+              child: new Text(
+                article.title,
+                style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: GlobalConfig.dark == true? Colors.white70 : Colors.black)
+              ),
+              margin: new EdgeInsets.only(top:6.0, bottom: 2.0),
+              alignment: Alignment.topLeft,
+            ),
+            new Container(
+              child: Row(
+                children: <Widget>[
+                  new Expanded(
+                      child: new Text(article.agreeNum.toString() + " 赞同 · " + article.commentNum.toString() + "评论", style: new TextStyle(color: GlobalConfig.fontColor))
+                  ),
+                  new PopupMenuButton(
+                    icon: Icon(Icons.linear_scale, color: GlobalConfig.fontColor),
+                    itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+                                            new PopupMenuItem<String>(
+                          value: '选项一的值',
+                          child: new Text('屏蔽这个问题')
+                      ),
+                      new PopupMenuItem<String>(
+                          value: '选项二的值',
+                          child: new Text('取消关注 learner')
+                      ),
+                      new PopupMenuItem<String>(
+                          value: '选项二的值',
+                          child: new Text("举报")
+                      )
+                    ]
+                  )
+                ],
+              ),
+              padding: const EdgeInsets.only(),
+            ),
+          ],
+        ),
       ),
     );
   }
