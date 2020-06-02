@@ -28,6 +28,7 @@
 		AD9D883A24855404002AAF21 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9D883924855404002AAF21 /* UIColor.swift */; };
 		ADA2F7722456BFDD00B5ED7A /* TableViewEx04ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA2F7712456BFDD00B5ED7A /* TableViewEx04ViewController.swift */; };
 		ADA2F7742456C12100B5ED7A /* SongEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA2F7732456C12100B5ED7A /* SongEntity.swift */; };
+		ADACD6022486541A00B2F0E4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADACD6012486541A00B2F0E4 /* SettingsViewController.swift */; };
 		ADD5EFE9248117E900F61071 /* Cornell08ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5EFE8248117E900F61071 /* Cornell08ViewController.swift */; };
 		ADD5EFEC2481189900F61071 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD5EFEB2481189900F61071 /* Constants.swift */; };
 		ADE6C14C2449E82100DE0AF6 /* DiningHallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 		AD9D883924855404002AAF21 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ADA2F7712456BFDD00B5ED7A /* TableViewEx04ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewEx04ViewController.swift; sourceTree = "<group>"; };
 		ADA2F7732456C12100B5ED7A /* SongEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongEntity.swift; sourceTree = "<group>"; };
+		ADACD6012486541A00B2F0E4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ADD5EFE8248117E900F61071 /* Cornell08ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornell08ViewController.swift; sourceTree = "<group>"; };
 		ADD5EFEB2481189900F61071 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADE6C14B2449E82100DE0AF6 /* DiningHallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallTableViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				ADD5EFE8248117E900F61071 /* Cornell08ViewController.swift */,
+				ADACD6012486541A00B2F0E4 /* SettingsViewController.swift */,
 			);
 			path = cornell_08_persistent;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				AD554B29244EF7FD0019196A /* ModalViewController.swift in Sources */,
 				AD32BB07244D9A1A008D92CA /* TableViewController.swift in Sources */,
 				AD9D883A24855404002AAF21 /* UIColor.swift in Sources */,
+				ADACD6022486541A00B2F0E4 /* SettingsViewController.swift in Sources */,
 				AD554B2F244EF9000019196A /* NavigationMVCandDelegationExViewController.swift in Sources */,
 				AD74F4C12462A8460047D413 /* Person.swift in Sources */,
 				AD554B24244EF6A20019196A /* Cornell02ExViewController.swift in Sources */,
