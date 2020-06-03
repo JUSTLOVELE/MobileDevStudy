@@ -3,7 +3,7 @@ import random
 import gym
 import numpy as np
 from tensorflow.keras import models, layers, optimizers
-
+import matplotlib.pyplot as plt
 
 class DQN(object):
     def __init__(self):
@@ -87,3 +87,6 @@ for i in range(episodes):
         agent.save_model()
         break
 env.close()
+
+plt.plot(score_list, color='green')
+plt.show()
