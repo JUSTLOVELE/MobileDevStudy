@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'search_page.dart';
 import '../global_config.dart';
 import 'follow.dart';
+import 'recommend.dart';
+import 'hot.dart';
+import 'search_page.dart';
 import 'ask_page.dart';
 
 class HomePage extends StatefulWidget {
+
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageState createState() => new _HomePageState();
+
 }
 
 class _HomePageState extends State<HomePage> {
@@ -30,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                   size: 16.0
                 ),
                 label: new Text(
-                  "搜索",
+                  "坚果R1摄像头损坏",
                   style: new TextStyle(color: GlobalConfig.fontColor),
                 ),
               )
@@ -93,13 +97,12 @@ class _HomePageState extends State<HomePage> {
           body: new TabBarView(
               children: [
                 new Follow(),
-                new Follow(),
-                new Follow(),
-                // new Recommend(),
-                // new Hot()
+                new Recommend(),
+                new Hot()
               ]
           ),
         ),
     );
   }
+
 }

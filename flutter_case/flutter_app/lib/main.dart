@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'index/index.dart';
 
-void main()=> runApp(MyApp());
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
 
@@ -9,7 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: "知乎-高仿版",
-      home: Index(),
+      home: new Index(),
     );
   }
+
 }

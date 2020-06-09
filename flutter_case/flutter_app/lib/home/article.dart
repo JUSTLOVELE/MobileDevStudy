@@ -1,5 +1,5 @@
-class Article{
 
+class Article {
   String headUrl;
   String user;
   String action;
@@ -10,20 +10,10 @@ class Article{
   int agreeNum;
   int commentNum;
 
-  Article(this.headUrl,
-      this.user,
-      this.action,
-      this.time,
-      this.title,
-      this.mark,
-      this.agreeNum,
-      this.commentNum,
-      {this.imgUrl}
-    );
+  Article(this.headUrl, this.user, this.action, this.time, this.title, this.mark, this.agreeNum, this.commentNum, {this.imgUrl});
 }
 
 List<Article> articleList = [
-
   new Article(
       "https://pic3.zhimg.com/50/2b8be8010409012e7cdd764e1befc4d1_s.jpg",
       "learner",

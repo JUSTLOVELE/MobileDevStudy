@@ -1,55 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/global_config.dart';
+import '../global_config.dart';
 
 class AskPage extends StatefulWidget {
+
   @override
-  _AskPageState createState() => _AskPageState();
+  AskPageState createState() => new AskPageState();
 }
 
-class _AskPageState extends State<AskPage> {
+class AskPageState extends State<AskPage> {
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: GlobalConfig.themeData,
-        home: Scaffold(
-          appBar: AppBar(
-              title: Container(
-            child: Row(
+    return new MaterialApp(
+      theme: GlobalConfig.themeData,
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Container(
+            child: new Row(
               children: <Widget>[
-                FlatButton.icon(
-                  onPressed: () {
+                new FlatButton.icon(
+                  onPressed: (){
                     Navigator.of(context).pop();
                   },
-                  icon: Icon(
-                    Icons.clear,
-                    color: Colors.white70,
-                  ),
-                  label: Text(""),
+                  icon: new Icon(Icons.clear, color: Colors.white70),
+                  label: new Text(""),
                 ),
-                Expanded(
-                    child: Container(
-                  child: Text("提问"),
-                )),
-                FlatButton(
-                    onPressed: () {},
-                    child: Text("下一步", style: TextStyle(color: Colors.white12)))
-              ],
-            ),
-          )),
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: "请输入标题",
-                        hintStyle: TextStyle(color: Colors.white70)),
-                  ),
-                  margin: const EdgeInsets.all(16.0),
+                new Expanded(
+                  child: new Container(
+                    child: new Text("提问"),
+                  )
+                ),
+                new FlatButton(
+                  onPressed: (){},
+                  child: new Text("下一步", style: new TextStyle(color: Colors.white12))
                 )
               ],
             ),
+          )
+        ),
+        body: new SingleChildScrollView(
+          child: new Column(
+            children: <Widget>[
+              new Container(
+                child: new TextField(
+                  decoration: new InputDecoration(
+                      hintText: "请输入标题",
+                      hintStyle: new TextStyle(color: Colors.white70)
+                  ),
+                ),
+                margin: const EdgeInsets.all(16.0),
+              )
+
+            ],
           ),
-        ));
+        )
+      )
+    );
   }
+
 }

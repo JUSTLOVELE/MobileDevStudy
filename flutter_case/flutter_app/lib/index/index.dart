@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'navigation_icon_view.dart';
-import 'package:flutter_app/global_config.dart';
-import 'package:flutter_app/home/home_page.dart';
+import '../global_config.dart';
+import '../home/home_page.dart';
+import '../idea/idea_page.dart';
+import '../market/market_page.dart';
+import '../notice/notice_page.dart';
+import '../my/my_page.dart';
 
 class Index extends StatefulWidget {
 
   @override
-  _IndexState createState() => _IndexState();
+  State<Index> createState() => new _IndexState();
 }
 
 class _IndexState extends State<Index> with TickerProviderStateMixin{
@@ -52,10 +56,10 @@ class _IndexState extends State<Index> with TickerProviderStateMixin{
 
     _pageList = <StatefulWidget>[
       new HomePage(),
-      new HomePage(),
-      new HomePage(),
-      new HomePage(),
-      new HomePage()
+      new IdeaPage(),
+      new MarketPage(),
+      new NoticePage(),
+      new MyPage()
     ];
     _currentPage = _pageList[_currentIndex];
   }
