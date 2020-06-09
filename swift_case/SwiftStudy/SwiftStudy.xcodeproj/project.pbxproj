@@ -24,6 +24,7 @@
 		AD74F4C32462A8850047D413 /* Cornell05ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74F4C22462A8850047D413 /* Cornell05ViewController.swift */; };
 		AD74F4C52462AB8A0047D413 /* PersonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74F4C42462AB8A0047D413 /* PersonCollectionViewCell.swift */; };
 		AD74F4C72462AFE00047D413 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74F4C62462AFE00047D413 /* HeaderView.swift */; };
+		AD77A1D92488F48C001A8320 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77A1D82488F48C001A8320 /* Song.swift */; };
 		AD96F4902456E7EA002108EB /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD96F48F2456E7EA002108EB /* SongTableViewCell.swift */; };
 		AD9D883A24855404002AAF21 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9D883924855404002AAF21 /* UIColor.swift */; };
 		ADA2F7722456BFDD00B5ED7A /* TableViewEx04ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA2F7712456BFDD00B5ED7A /* TableViewEx04ViewController.swift */; };
@@ -57,6 +58,7 @@
 		AD74F4C22462A8850047D413 /* Cornell05ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornell05ViewController.swift; sourceTree = "<group>"; };
 		AD74F4C42462AB8A0047D413 /* PersonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD74F4C62462AFE00047D413 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		AD77A1D82488F48C001A8320 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		AD96F48F2456E7EA002108EB /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		AD9D883924855404002AAF21 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ADA2F7712456BFDD00B5ED7A /* TableViewEx04ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewEx04ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				ADD5EFE8248117E900F61071 /* Cornell08ViewController.swift */,
 				ADACD6012486541A00B2F0E4 /* SettingsViewController.swift */,
+				AD77A1D82488F48C001A8320 /* Song.swift */,
 			);
 			path = cornell_08_persistent;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				ADE6C14E2449F14F00DE0AF6 /* DiningHall.swift in Sources */,
 				AD554B31244EF9430019196A /* MagicalViewController.swift in Sources */,
 				AD74F4C32462A8850047D413 /* Cornell05ViewController.swift in Sources */,
+				AD77A1D92488F48C001A8320 /* Song.swift in Sources */,
 				ADD5EFEC2481189900F61071 /* Constants.swift in Sources */,
 				AD74F4C72462AFE00047D413 /* HeaderView.swift in Sources */,
 				ADE6C14C2449E82100DE0AF6 /* DiningHallTableViewCell.swift in Sources */,

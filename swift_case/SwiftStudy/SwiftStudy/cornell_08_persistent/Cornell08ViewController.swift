@@ -165,8 +165,47 @@ class Cornell08ViewController: ViewController {
         ])
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fillUserLabelValues()
+        fillSongLabelValues()
+        fillAppColor()
+    }
+    
     @objc func pushProfileViewController() {
+        let settingViewController = SettingsViewController()
+        navigationController?.pushViewController(settingViewController, animated: true)
+    }
+    
+    func fillUserLabelValues() {
         
+        if let name = userDefaults.string(forKey: Constants.UserDefaults.name),
+            let username = userDefaults.string(forKey: Constants.UserDefaults.username),
+            let email = userDefaults.string(forKey: Constants.UserDefaults.email),
+            let lastUpdated = userDefaults.value(forKey: Constants.UserDefaults.lastUpdated) as? Date {
+            nameLabel.text = name
+            usernameLabel.text = username
+            emailLabel.text = email
+            lastUpdatedLabel.text = "Last Updated \(lastUpdated)"
+        }
+    }
+    
+    func fillSongLabelValues() {
+        
+        let decoder = JSONDecoder()
+        
+        if let favoriteSong = userDefaults.data(forKey: Constants.UserDefaults.favoriteSong) {
+            if let song = try? decoder.decode(Song.self, from: favoriteSong) {
+                songNameLabel.text = song.name
+                songArtistLabel.text = song.artist
+            }
+        }
+    }
+    
+    func fillAppColor() {
+        let colorIndex = userDefaults.integer(forKey: Constants.UserDefaults.color)
+        photoImageView.backgroundColor = colorItems[colorIndex]
+        songImageView.backgroundColor = colorItems[colorIndex]
     }
   
 

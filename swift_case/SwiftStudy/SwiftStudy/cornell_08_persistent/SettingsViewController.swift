@@ -297,6 +297,25 @@ class SettingsViewController: UIViewController {
         
     }
     
+    func setColor() {
+        
+        let colorIndex = userDefaults.integer(forKey: Constants.UserDefaults.color)
+        saveProfileButton.backgroundColor = colorItems[colorIndex]
+        saveSongButton.backgroundColor = colorItems[colorIndex]
+        saveSettingsButton.backgroundColor = colorItems[colorIndex]
+    }
+    
+    func setSongLabelText() {
+        
+        let decoder = JSONDecoder()
+        if let favoriteSong = userDefaults.data(forKey: Constants.UserDefaults.favoriteSong) {
+            if let song = try? decoder.decode(Song.self, from: favoriteSong){
+                songTitleTextField.text = song.name
+                songTitleTextField.text = song.artist
+            }
+        }
+    }
+    
     func updateColors() {
         saveProfileButton.backgroundColor = selectedColor
         saveSongButton.backgroundColor = selectedColor
@@ -346,30 +365,29 @@ class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colorItems.count
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 60, height: 60)
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: colorReuseIdentifier, for: indexPath as IndexPath)
         let color = colorItems[indexPath.item]
         cell.layer.cornerRadius = 30
         cell.backgroundColor = color
-        
-        if(color == selectedColor) {
+        if (color == selectedColor) {
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.borderWidth = 3
-        }else{
+        } else {
             cell.layer.borderWidth = 0
         }
-        
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 60)
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedColor = colorItems[indexPath.item]
         colorsCollectionView.reloadData()
