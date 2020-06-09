@@ -50,7 +50,8 @@ public class PaymentController {
 	 */
 	@GetMapping(value = "/payment/get/{id}")
 	public CommonResult getParamById(@PathVariable("id") String id) {
-		
+
+		System.out.println(id);
 		Payment p = paymentService.getPaymentById(id);
 		
 		if(p != null) {

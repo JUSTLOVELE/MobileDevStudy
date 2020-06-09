@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 public class OrderZKMain80 {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OrderZKMain80.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(OrderZKMain80.class, args);
+    }
 }
