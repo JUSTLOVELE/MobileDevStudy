@@ -23,7 +23,7 @@
 	<!-- 子模块继承后,提供作用:锁定版本+子modlue不用写groupId和version -->
 	<dependencyManagement>
 		<dependencies>
-			<!-- springcloud的版本要和springboot对上才行 -->
+			<!-- springcloud的版本要和springboot对上才行,参考https://spring.io/projects/spring-cloud -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
