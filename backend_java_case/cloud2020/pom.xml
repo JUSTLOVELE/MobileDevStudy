@@ -123,10 +123,10 @@
 		<module>cloud-eureka-server-7002</module>
 		<module>cloud-provider-payment8004</module>
 		<module>cloud-concumerzk-order80</module>
-		<module>cloud-providerconsul-payment8006</module>
 		<module>cloud-consumerconsul-order80</module>
 		<module>cloud-consumer-feign-order80</module>
 		<module>cloud-provider-payment8002</module>
+		<module>cloud-providerconsul-payment9006</module>
 	</modules>
 	
 	  <!--第三方maven私服-->
