@@ -127,7 +127,8 @@
 		<module>cloud-consumer-feign-order80</module>
 		<module>cloud-provider-payment8002</module>
 		<module>cloud-providerconsul-payment9006</module>
-	</modules>
+        <module>cloud-provider-hystrix-payment8001</module>
+    </modules>
 	
 	  <!--第三方maven私服-->
     <repositories>
