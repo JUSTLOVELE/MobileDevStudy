@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Component
-@FeignClient(value = "CLOUD-PROVIDER-HYTRIX-PAYMENT")
+@FeignClient(value = "CLOUD-PROVIDER-HYTRIX-PAYMENT", fallback = PaymentHystrixServiceImpl.class)
 public interface PaymentHystrixService {
 
     @GetMapping("/payment/hytrix/ok/{id}")
