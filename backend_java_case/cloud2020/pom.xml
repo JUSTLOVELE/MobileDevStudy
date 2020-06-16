@@ -129,6 +129,7 @@
 		<module>cloud-providerconsul-payment9006</module>
         <module>cloud-provider-hystrix-payment8001</module>
         <module>cloud-consumer-feign-hystrix-order80</module>
+        <module>cloud-consumer-hystrix-dashboard9001</module>
     </modules>
 	
 	  <!--第三方maven私服-->
