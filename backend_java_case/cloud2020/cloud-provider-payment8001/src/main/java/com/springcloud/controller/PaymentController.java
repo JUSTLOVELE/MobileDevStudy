@@ -31,7 +31,7 @@ public class PaymentController {
 	@Value("${server.port}")
 	private String serverPort;
 	
-	@PostMapping(value = "/payment/create")
+	@PostMapping(value = "/payment/create", produces = "application/json;charset=utf-8")
 	public CommonResult create(@RequestBody Payment payment) {
 		
 		int result = paymentService.create(payment);
@@ -59,6 +59,11 @@ public class PaymentController {
 		}else {
 			return new CommonResult(444, "查詢失敗:id=" + id);
 		}
+	}
+
+	@GetMapping(value = "/payment/lb")
+	public String getPaymentLB() {
+		return serverPort;
 	}
 	
 	@GetMapping(value = "/payment/discovery")
