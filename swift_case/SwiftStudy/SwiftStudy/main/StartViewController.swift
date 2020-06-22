@@ -35,6 +35,7 @@ class StartViewController: UIViewController {
         let cornell_ch04_ex = StudyCaseModel(name:"corenll ch04 ex UITableViewStudyCase", vc: TableViewEx04ViewController())
         let cornell_ch05 = StudyCaseModel(name:"corenll ch05 UICollectionViews", vc: Cornell05ViewController())
         let cornell_ch08 = StudyCaseModel(name:"corenll ch08 缓存 & 持久化", vc: Cornell08ViewController())
+        let bluetooth = StudyCaseModel(name: "蓝牙相关代码", vc: BluetoothViewController())
         
         studyCaseModel = [cornell_ch02,
                           cornell_ch02_ex,

@@ -375,6 +375,7 @@ extension SettingsViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: colorReuseIdentifier, for: indexPath as IndexPath)
         let color = colorItems[indexPath.item]
         cell.layer.cornerRadius = 30
