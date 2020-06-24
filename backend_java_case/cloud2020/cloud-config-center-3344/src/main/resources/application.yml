@@ -8,9 +8,9 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:zzyybs/springcloud-config.git #github上面的git仓库名字
+          uri: https://github.com/JUSTLOVELE/MobileDevStudy.git #如果是用github会很慢,要一直去下载,可以用码云,会一直转,要等待
           search-paths:
-            - springcloud-config
+            - backend_java_case/config_center
       label: master #master分支
 
 eureka:
