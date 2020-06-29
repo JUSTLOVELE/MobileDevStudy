@@ -8,9 +8,13 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/JUSTLOVELE/MobileDevStudy.git #如果是用github会很慢,要一直去下载,可以用码云,会一直转,要等待
+          uri: https://gitee.com/JUST_LOVE_LE/ConfigCenter.git
           search-paths:
-            - backend_java_case/config_center
+            - config_center
+#        git:
+#          uri: https://github.com/JUSTLOVELE/MobileDevStudy.git #如果是用github会很慢,要一直去下载,可以用码云,会一直转,要等待
+#          search-paths:
+#            - backend_java_case/config_center
       label: master #master分支
 
 eureka:
