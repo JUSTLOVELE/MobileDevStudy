@@ -2,6 +2,11 @@ server:
   port: 3355
 
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   application:
     name: config-client #配置中心
   cloud:
