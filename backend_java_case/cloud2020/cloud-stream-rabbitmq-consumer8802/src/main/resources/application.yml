@@ -1,0 +1,11 @@
+server:
+  port: 8802
+spring:
+  mvc:
+    date-format: yyyy-MM-dd
+  application:
+    name: cloud-stream-consumer
+  cloud:
+
+
+
