@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>05_component_props</title>
+</head>
+
+<body>
+    <div id="example1"></div>
+    <div id="example2"></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+
+
+    <script type="text/babel">
+        
+        function Person(props) {
+            return(
+                <ul>
+                    <li>姓名:{props.name}</li>
+                    <li>年龄:{props.age}</li>
+                    <li>性别:{props.sex}</li>
+                </ul>
+            )
+        }
+       
+        Person.defaultProps = {
+            sex: '男',
+            age: 18
+        }
+        //指定属性值的类型和属性
+         //需要引入prop-types.js
+        Person.propTypes = {
+            name: PropTypes.string.isRequired,
+            age: PropTypes.number
+        }
+
+        const p1 = {
+            name: 'Tom',
+            age: 18,
+            sex: '女'
+        }
+
+        ReactDOM.render(<Person name={p1.name} age={p1.age} sex={p1.sex}/>, document.getElementById('example1'))
+        
+        const p2 = {
+            name: 'Tom'
+        }
+
+        ReactDOM.render(<Person name={p2.name} age={20} />, document.getElementById('example2'))
+    </script>
+
+</body>
+</html>
