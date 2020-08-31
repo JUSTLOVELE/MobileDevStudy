@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>05_component_props</title>
+</head>
+
+<body>
+    <div id="example"></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+       
+       class App extends React.Component {
+
+            constructor(props) {
+                super(props)
+                this.state = {
+                    todos: ['吃饭', '睡觉', '打代码']
+                }
+            }
+
+           render() {
+
+               const {todos} = this.state
+               return (
+                    <div>
+                        <h1>Simple TODO List</h1>
+                        <Add count={todos.length}/>
+                        <List todos={this.state.todos}/>
+                    </div>
+
+               ) 
+           }
+       }
+
+       class Add extends React.Component {
+           render() {
+               return (
+                    <div>
+                        <input type="text"/>
+                        <button>add #{this.props.count+1}</button>
+                    </div>
+               )
+           }
+       }
+
+       Add.propTypes = {
+           count: PropTypes.number.isRequired
+       }
+
+       class List extends React.Component {
+           render() {
+               const {todos} = this.props
+               return (
+                   <ul>
+                      {
+                          this.props.todos.map((todo, index) => <li key={index}> {todo} </li>)
+                      }
+                   </ul>
+               )
+           }
+       }
+
+       List.propTypes = {
+           todos: PropTypes.array.isRequired
+       }
+
+       ReactDOM.render(<App/>, document.getElementById('example'))
+    </script>
+
+</body>
+</html>
