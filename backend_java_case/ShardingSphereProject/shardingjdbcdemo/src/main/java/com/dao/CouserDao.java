@@ -1,6 +1,9 @@
 package com.dao;
 
+import com.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,5 +13,7 @@ import org.springframework.stereotype.Repository;
  * @history:
  */
 @Repository
-public interface CouserDao extends JpaRepository {
+public interface CouserDao extends JpaRepository<Course, Long> {
+
+
 }

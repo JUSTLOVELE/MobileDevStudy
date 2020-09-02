@@ -1,0 +1,66 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/edu_db_1?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 3
+      initial-size: 3
+      max-total: 20
+      max-wait-millis: 333
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+#  main:
+#    allow-bean-definition-overriding: true
+#  shardingsphere:
+#    dataSources:
+#      m1:
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driverClassName: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://localhost:3306/edu_db_1?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+#        username: root
+#        password: root
+#      m2:
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driverClassName: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://localhost:3306/edu_db_2?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+#        username: root
+#        password: root
+#
+#    shardingRule:
+#      tables:
+#        course:
+#          actualDataNodes: m$.course_$->{1..2}
+#          databaseStrategy:
+#            inline:
+#              shardingColumn: user_id
+#              algorithmExpression: m$->{user_id % 2 + 1}
+#          tableStrategy:
+#            inline:
+#              shardingColumn: cid
+#              algorithmExpression: course_$->{cid % 2 + 1}
+#          keyGenerator:
+#            type: SNOWFLAKE
+#            column: cid
+#
+#      bindingTables:
+#        - t_order
+#    #  broadcastTables:
+#    #    - t_config
+#
+#      defaultDataSourceName: m1
+#      defaultTableStrategy:
+#        none:
+#      defaultKeyGenerator:
+#        type: SNOWFLAKE
+#        column: cid
+#
+#    props:
+#      sql.show: true
