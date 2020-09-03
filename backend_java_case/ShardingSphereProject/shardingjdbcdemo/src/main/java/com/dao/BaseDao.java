@@ -22,69 +22,69 @@ import java.util.Map;
  */
 public abstract class BaseDao {
 	
-	private final static Log _logger = LogFactory.getLog(BaseDao.class);
-	
-	@Autowired
-	private EntityManager _entityManager;
-	
-	@Autowired
-	protected JdbcTemplate _jdbcTemplate;
-
-	
-	public void save(Object obj) {
-		_entityManager.persist(obj);
-	}
-	
-	public <T> T merge(T entity) {
-		return _entityManager.merge(entity);
-	}
-	
-	public <T> T findById(Class<T> clazz, Serializable id){
-		return (T) _entityManager.find(clazz, id);
-	}
-	
-	public void update(Object obj) {
-		_entityManager.merge(obj);
-	}
-	
-	public void deleteById(Class clazz,Serializable id) {
-		_entityManager.remove(_entityManager.find(clazz, id));
-	}
-	
-	public Query createQuery(String sql) {
-		return _entityManager.createQuery(sql);
-	}
-	
-	public Query createNativeQuery(String sql) {
-		return _entityManager.createNativeQuery(sql);
-	}
-	
-	public List createNativeQuery(String sql, Object[] objs) {
-		
-		Query q = createNativeQuery(sql);
-		
-		if(objs != null && objs.length > 0) {
-			
-			for(int i=0; i<objs.length; i++) {
-				
-				q.setParameter(i+1, objs[i]);
-			}
-		}
-		
-		return q.getResultList();
-	}
-
-	public JdbcTemplate getJdbcTemplate() {
-		return _jdbcTemplate;
-	}
-	
-	public void clearList(List list){
-		list.clear();
-		list = null;
-	}
-	
-	public void clearMap(Map map){
-		map.clear();
-		map = null;
-	}
+//	private final static Log _logger = LogFactory.getLog(BaseDao.class);
+//
+//	@Autowired
+//	private EntityManager _entityManager;
+//
+//	@Autowired
+//	protected JdbcTemplate _jdbcTemplate;
+//
+//
+//	public void save(Object obj) {
+//		_entityManager.persist(obj);
+//	}
+//
+//	public <T> T merge(T entity) {
+//		return _entityManager.merge(entity);
+//	}
+//
+//	public <T> T findById(Class<T> clazz, Serializable id){
+//		return (T) _entityManager.find(clazz, id);
+//	}
+//
+//	public void update(Object obj) {
+//		_entityManager.merge(obj);
+//	}
+//
+//	public void deleteById(Class clazz,Serializable id) {
+//		_entityManager.remove(_entityManager.find(clazz, id));
+//	}
+//
+//	public Query createQuery(String sql) {
+//		return _entityManager.createQuery(sql);
+//	}
+//
+//	public Query createNativeQuery(String sql) {
+//		return _entityManager.createNativeQuery(sql);
+//	}
+//
+//	public List createNativeQuery(String sql, Object[] objs) {
+//
+//		Query q = createNativeQuery(sql);
+//
+//		if(objs != null && objs.length > 0) {
+//
+//			for(int i=0; i<objs.length; i++) {
+//
+//				q.setParameter(i+1, objs[i]);
+//			}
+//		}
+//
+//		return q.getResultList();
+//	}
+//
+//	public JdbcTemplate getJdbcTemplate() {
+//		return _jdbcTemplate;
+//	}
+//
+//	public void clearList(List list){
+//		list.clear();
+//		list = null;
+//	}
+//
+//	public void clearMap(Map map){
+//		map.clear();
+//		map = null;
+//	}
 }

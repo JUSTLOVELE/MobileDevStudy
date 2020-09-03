@@ -1,0 +1,32 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: m1,m2
+      m1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        jdbc-url: jdbc:mysql://localhost:3306/edu_db_1?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+        username: root
+        password: root
+        max-active: 16
+      m2:
+        type: com.alibaba.druid.pool.DruidDataSource
+        jdbc-url: jdbc:mysql://localhost:3306/edu_db_2?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+        username: root
+        password: root
+        max-active: 16
+    sharding:
+      defaultDataSourceName: m1
+      tables:
+        course:
+          actual-data-nodes: m$.course_$->{1..2}
+          database-strategy:
+            inline:
+              sharding-column: user_id
+              algorithm-expression: m$->{user_id % 2 + 1}
+          table-strategy:
+            inline:
+              sharding-column: cid
+              algorithm-expression: course_$->{cid % 2 + 1}
+          key-generator:
+            column: cid
+            type: SNOWFLAKE

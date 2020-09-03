@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>shardingjdbcdemo</module>
+        <module>ShardingJdbcDemo02</module>
     </modules>
 
 

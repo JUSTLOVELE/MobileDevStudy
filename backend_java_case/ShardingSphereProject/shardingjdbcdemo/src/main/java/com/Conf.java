@@ -15,17 +15,4 @@ import javax.sql.DataSource;
 @Configuration
 public class Conf {
 
-
-    //@Bean
-    public DataSource dataSource() {
-
-        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.driverClassName("com.mysql.cj.jdbc.Driver");
-        dataSourceBuilder.url("jdbc:mysql://localhost:3306/edu_db_1?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8");
-        dataSourceBuilder.username("root");
-        dataSourceBuilder.password("root");
-
-        return dataSourceBuilder.build();
-    }
-
 }

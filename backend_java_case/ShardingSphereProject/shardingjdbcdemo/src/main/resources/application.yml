@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: sharding-databases-tables
+  #  datasource:
+  #    primary:
+  #        jdbc-url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${DB_NAME:dmp_t3cc}?useUnicode=true&characterEncoding=UTF8&serverTimezone=Hongkong
+  #        username: ${MYSQL_USER:root}
+  #        password: ${MYSQL_PASS:root}
+  #    secondary:
+  #        jdbc-url: jdbc:mysql://xxxxxxxxxxxxx/xxxxxx?useUnicode=true&characterEncoding=UTF8&serverTimezone=Hongkong
+  #        username: xxxxx
+  #        password: xxxxxxx
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  #不加这句则默认为myisam引擎
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    open-in-view: true
+    properties:
+      enable_lazy_load_no_trans: true
+    show-sql: true
