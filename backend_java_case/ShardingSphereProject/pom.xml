@@ -10,6 +10,7 @@
     <modules>
         <module>shardingjdbcdemo</module>
         <module>ShardingJdbcDemo02</module>
+        <module>ShardingJdbcDemo03</module>
     </modules>
 
 
