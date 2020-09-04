@@ -29,7 +29,6 @@ public class CouserService {
             course.setUserId(Long.valueOf(i));
             course.setcStatus("normal");
             _couserDao.save(course);
-
         }
     }
 
