@@ -5,6 +5,7 @@ import org.apache.shardingsphere.api.config.sharding.KeyGeneratorConfiguration;
 import org.apache.shardingsphere.api.config.sharding.ShardingRuleConfiguration;
 import org.apache.shardingsphere.api.config.sharding.TableRuleConfiguration;
 import org.apache.shardingsphere.api.config.sharding.strategy.InlineShardingStrategyConfiguration;
+import org.apache.shardingsphere.api.config.sharding.strategy.StandardShardingStrategyConfiguration;
 import org.apache.shardingsphere.shardingjdbc.api.ShardingDataSourceFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -53,8 +54,8 @@ public class DBConf {
 
     @Bean("dataSource")
     public DataSource dataSource() {
-        try {
 
+        try {
             // Sharding全局配置
             ShardingRuleConfiguration shardingRuleConfiguration = new ShardingRuleConfiguration();
             //配置t_user
@@ -63,8 +64,13 @@ public class DBConf {
             shardingRuleConfiguration.getTableRuleConfigs().add(confCourseRule());
             //配置公共字典表
             shardingRuleConfiguration.getTableRuleConfigs().add(confTudictRule());
+            //配置teacher表
+            shardingRuleConfiguration.getTableRuleConfigs().add(confTeacherRule());
             //如果添加数据则三个库都会添加,如果删除则三个库都会删除
             shardingRuleConfiguration.getBroadcastTables().add("t_udict");
+            // 自定义算法
+            //shardingRuleConfiguration.setDefaultDatabaseShardingStrategyConfig(new InlineShardingStrategyConfiguration("t_id", "m1"));
+            //shardingRuleConfiguration.setDefaultTableShardingStrategyConfig(new StandardShardingStrategyConfiguration("t_id", new TableShardingAlgorithm()));
             // 创建数据源
             Properties props=new Properties();
             props.put("sql.show", "true");
@@ -76,7 +82,23 @@ public class DBConf {
             return null;
         }
     }
+    
+    private TableRuleConfiguration confTeacherRule() {
 
+        // 配置表规则
+        TableRuleConfiguration teacherConf = new TableRuleConfiguration("teacher", "m$->{1..2}.teacher_$->{1..2}");
+        // 行表达式分表规则
+        teacherConf.setTableShardingStrategyConfig(new StandardShardingStrategyConfiguration("t_id", new TableShardingAlgorithm()));
+        // 行表达式分库规则
+        teacherConf.setDatabaseShardingStrategyConfig(new StandardShardingStrategyConfiguration("t_key", new DatabaseShardingAlgorithm()));
+        return teacherConf;
+        
+    }
+
+    /**
+     * 水平分库分表
+     * @return
+     */
     private TableRuleConfiguration confCourseRule() {
         // 配置表规则
         TableRuleConfiguration courseConfig = new TableRuleConfiguration("course", "m$->{1..2}.course_$->{1..2}");

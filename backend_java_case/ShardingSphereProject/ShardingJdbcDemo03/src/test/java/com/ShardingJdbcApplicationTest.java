@@ -1,8 +1,7 @@
 package com;
 
-import com.dao.TUdictDao;
-import com.entity.Course;
 import com.service.CouserService;
+import com.service.TeacherService;
 import com.service.TUdictService;
 import com.service.TUserService;
 import org.junit.Test;
@@ -30,6 +29,14 @@ public class ShardingJdbcApplicationTest {
 
     @Autowired
     private CouserService _couserService;
+
+    @Autowired
+    private TeacherService _teacherService;
+
+    @Test
+    public void teacherSave() {
+        _teacherService.save();
+    }
 
     @Test
     public void courseSave() {
