@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+datasource0:
+  url: jdbc:mysql://192.168.1.150:3306/user_db?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  type: com.alibaba.druid.pool.DruidDataSource
+  username: db_sync
+  password: db_sync
+
+datasource1:
+  url: jdbc:mysql://192.168.1.150:3306/user_db?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  type: com.alibaba.druid.pool.DruidDataSource
+  username: db_sync
+  password: db_sync
+
+

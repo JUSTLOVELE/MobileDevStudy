@@ -11,6 +11,7 @@
         <module>shardingjdbcdemo</module>
         <module>ShardingJdbcDemo02</module>
         <module>ShardingJdbcDemo03</module>
+        <module>ShardingJdbcDemo04</module>
     </modules>
 
 
