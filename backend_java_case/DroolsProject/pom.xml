@@ -23,7 +23,7 @@
         <mysql.version>8.0.16</mysql.version>
         <druid.version>1.1.16</druid.version>
         <mybatis.spring.boot.version>1.3.1</mybatis.spring.boot.version>
-        <drools.version>7.0.0.Final</drools.version>
+        <drools.version>7.10.0.Final</drools.version>
         <maven.test.skip>true</maven.test.skip><!--跳过测试且不会生成class -->
     </properties>
     <dependencyManagement>
