@@ -1,0 +1,11 @@
+package comparisonOperator
+import com.entity.ComparisonOperatorEntity
+
+rule "rule_comparison_contains"
+    when
+        ComparisonOperatorEntity(names contains "张三") or
+        ComparisonOperatorEntity(list contains names)
+    then
+        System.out.println("规则rule_comparison_contains触发");
+
+end
