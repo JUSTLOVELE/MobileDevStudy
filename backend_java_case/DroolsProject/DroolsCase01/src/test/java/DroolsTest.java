@@ -1,5 +1,6 @@
 import com.entity.ComparisonOperatorEntity;
 import com.entity.Order;
+import com.entity.Student;
 import org.drools.core.base.RuleNameEqualsAgendaFilter;
 import org.junit.Test;
 import org.kie.api.KieServices;
@@ -14,6 +15,46 @@ import org.kie.api.runtime.KieSession;
  */
 public class DroolsTest {
 
+
+    /**
+     * 内嵌方法insert
+     */
+    @Test
+    public void case05_insert() {
+
+        KieServices kieServices = KieServices.Factory.get();
+        //获取Kie容器对象
+        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        //从Kie容器对象中获取会话对象
+        KieSession session = kieContainer.newKieSession();
+        //Fact对象
+        Student fact = new Student();
+        fact.setAge(10);
+        session.insert(fact);
+        //激活规则,指定规则名称
+        session.fireAllRules();
+        session.dispose();
+    }
+
+    /**
+     * 内嵌方法update
+     */
+    @Test
+    public void case04_update() {
+
+        KieServices kieServices = KieServices.Factory.get();
+        //获取Kie容器对象
+        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        //从Kie容器对象中获取会话对象
+        KieSession session = kieContainer.newKieSession();
+        //Fact对象
+        Student fact = new Student();
+        fact.setAge(2);
+        session.insert(fact);
+        //激活规则,指定规则名称
+        session.fireAllRules();
+        session.dispose();
+    }
 
     /**
      * 指定规则名称

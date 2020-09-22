@@ -1,0 +1,38 @@
+package student
+import com.entity.Student
+
+rule "age_remove_10"
+    salience 10
+    when
+        $s:Student(age==10);
+    then
+        retract($s);
+        System.out.println("规则等于10岁,retract规则触发");
+end
+
+
+rule "age_equals_10"
+    when
+        $s:Student(age==10);
+    then
+        Student s = new Student();
+        s.setAge(5);
+        insert(s);
+        System.out.println("规则等于10岁触发");
+end
+
+rule "rule_student_age"
+    when
+        $s:Student(age<10);
+    then
+        $s.setAge(15);
+        update($s);
+        System.out.println("规则小于10岁触发");
+end
+
+rule "rule_student_re_macth"
+    when
+        $s:Student(age<20 && age>10);
+    then
+        System.out.println("规则小于20岁大于10时触发");
+end
