@@ -7,6 +7,9 @@ import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author yangzl 2020.09.15
  * @version 1.00.00
@@ -15,6 +18,28 @@ import org.kie.api.runtime.KieSession;
  */
 public class DroolsTest {
 
+
+
+    /**
+     * 全局变量测试
+     */
+    @Test
+    public void case06_global() {
+
+        KieServices kieServices = KieServices.Factory.get();
+        //获取Kie容器对象
+        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        //从Kie容器对象中获取会话对象
+        KieSession session = kieContainer.newKieSession();
+        //Fact对象
+        session.setGlobal("count", 10);
+        List<String> list = new ArrayList<String>();
+        list.add("sdsds");
+        session.setGlobal("gList", list);
+        //激活规则,指定规则名称
+        session.fireAllRules();
+        session.dispose();
+    }
 
     /**
      * 内嵌方法insert
