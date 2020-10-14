@@ -1,0 +1,10 @@
+package query
+import com.entity.Student
+
+query "query_1"
+    $s:Student(age==50)
+end
+
+query "query_2"(String sname)
+    $student:Student(age > 20 && name == sname)
+end

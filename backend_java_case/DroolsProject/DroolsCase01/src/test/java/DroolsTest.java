@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.QueryResults;
+import org.kie.api.runtime.rule.QueryResultsRow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,53 @@ import java.util.List;
  */
 public class DroolsTest {
 
+    /**
+     * 函数
+     */
+    @Test
+    public void case08_function() {
+
+        KieServices kieServices = KieServices.Factory.get();
+        //获取Kie容器对象
+        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        //从Kie容器对象中获取会话对象
+        KieSession session = kieContainer.newKieSession();
+        Student s1 = new Student();
+        s1.setAge(50);
+        s1.setName("王五");
+        session.insert(s1);
+
+        //激活规则,指定规则名称
+        session.fireAllRules();
+        session.dispose();
+    }
+
+    /**
+     * 查询
+     */
+    @Test
+    public void case07_query() {
+
+        KieServices kieServices = KieServices.Factory.get();
+        //获取Kie容器对象
+        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        //从Kie容器对象中获取会话对象
+        KieSession session = kieContainer.newKieSession();
+        Student s1 = new Student();
+        s1.setAge(50);
+        s1.setName("test");
+        session.insert(s1);
+        QueryResults resultsRows = session.getQueryResults("query_1");
+
+        for(QueryResultsRow row: resultsRows) {
+            Student s = (Student) row.get("$s"); //规则文件中的绑定变量名
+            System.out.println(s.toString());
+        }
+
+        //激活规则,指定规则名称
+        session.fireAllRules();
+        session.dispose();
+    }
 
 
     /**

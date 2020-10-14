@@ -1,25 +1,25 @@
-package testGlobal
-
-global java.lang.Integer count //定义一个全局变量
-global java.util.List gList
-
-rule "rule_global_1"
-
-    when
-
-    then
-        count += 10;
-        System.out.println("规则: rule_global_1 触发了");
-        System.out.println("全局变量count计算值为:" + count);
-        gList.add("itcast");
-        System.out.println("gList长度为:" + gList.size());
-end
-
-rule "rule_global_2"
-
-    when
-
-    then
-        System.out.println("规则: rule_global_2 触发了");
-        System.out.println("全局变量count计算值为:" + count);
-end
+//    package testGlobal
+//
+//    global java.lang.Integer count //定义一个全局变量
+//    global java.util.List gList
+//
+//    rule "rule_global_1"
+//
+//    when
+//
+//            then
+//    count += 10;
+//        System.out.println("规则: rule_global_1 触发了");
+//        System.out.println("全局变量count计算值为:" + count);
+//        gList.add("itcast");
+//        System.out.println("gList长度为:" + gList.size());
+//    end
+//
+//    rule "rule_global_2"
+//
+//    when
+//
+//            then
+//        System.out.println("规则: rule_global_2 触发了");
+//        System.out.println("全局变量count计算值为:" + count);
+//    end
