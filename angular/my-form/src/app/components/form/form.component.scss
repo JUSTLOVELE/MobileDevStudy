@@ -4,6 +4,7 @@ h2 {
 
 .people_list {
     width: 400px;
+    height: 800px;
     margin: 40px auto;
     padding:  20px;
     border: 1px solid #eee;
@@ -25,5 +26,10 @@ h2 {
         float: right;
         margin-right: 50px;
         margin-top: 120px;
+    }
+
+    .code {
+       
+        margin-top: 150px;
     }
 }

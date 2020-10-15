@@ -3,9 +3,9 @@
 <div class="people_list">
     <ul>
         <li>姓名: <input type="text" id="username" [(ngModel)]="peopleInfo.username" value="form_input" /></li>
-        <li>性别: 
-            <input type="radio" value="1" name="sex" id="sex1" [(ngModel)]="peopleInfo.sex"><label for = "sex1">男</label>
-            <input type="radio" value="2" name="sex" id="sex2" [(ngModel)]="peopleInfo.sex"><label for = "sex2">女</label>
+        <li>性别:
+            <input type="radio" value="1" name="sex" id="sex1" [(ngModel)]="peopleInfo.sex"><label for="sex1">男</label>
+            <input type="radio" value="2" name="sex" id="sex2" [(ngModel)]="peopleInfo.sex"><label for="sex2">女</label>
         </li>
 
         <li>
@@ -17,7 +17,8 @@
         <li>
             爱好:
             <span *ngFor="let item of peopleInfo.hobby; let key=index;">
-                <input type="checkbox" [id]="'check' + key" [(ngModel)]="item.checked" /> <label for="'check' + key"> {{item.title}}</label>
+                <input type="checkbox" [id]="'check' + key" [(ngModel)]="item.checked" /> <label for="'check' + key">
+                    {{item.title}}</label>
                 &nbsp; &nbsp;
             </span>
         </li>
@@ -29,8 +30,7 @@
 
     <button (click)="doSubmit()" class="submit">获取表单的内容</button>
 
-    <pre>
-
-        {{peopleInfo | json}}
+    <pre class="code">
+            {{peopleInfo | json}}
     </pre>
 </div>

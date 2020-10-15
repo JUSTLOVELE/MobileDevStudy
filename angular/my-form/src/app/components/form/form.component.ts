@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http"
+import { Logger } from 'src/app/logger.service';
 
 @Component({
   selector: 'app-form',
@@ -25,9 +27,20 @@ export class FormComponent implements OnInit {
     mark: ''
   }
 
-  constructor() { }
+  constructor(public http:HttpClient,
+    private logger: Logger
+    
+    ) { }
 
   ngOnInit(): void {
+
+    var url = "http://a.itying.com/api/productlist";
+    this.http.get(url).subscribe(response =>{
+      console.log("get")
+      console.log(response);
+    })
+
+    this.logger.log("log hello world")
   }
 
   doSubmit() {
