@@ -7,7 +7,12 @@
     </li>
 </ul>
 
-<div *ngIf="selectedHero">
+<!--  
+这是一种单向数据绑定。从 HeroesComponent 的 selectedHero 属性绑定到目标元素的 hero 属性，
+并映射到了 HeroDetailComponent 的 hero 属性
+-->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- <div *ngIf="selectedHero">
 
     <h2>{{selectedHero.name | uppercase}} Details </h2>
     <div><span>id:</span> {{selectedHero.id}} </div>
@@ -16,4 +21,4 @@
             <input [(ngModel)]="selectedHero.name" placeholder="name" />
         </label>
     </div>
-</div>
+</div> -->

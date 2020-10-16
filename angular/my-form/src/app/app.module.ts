@@ -7,13 +7,15 @@ import { SearchComponent } from './components/search/search.component';
 import {HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
 import { Logger } from './logger.service';
 import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     SearchComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,
