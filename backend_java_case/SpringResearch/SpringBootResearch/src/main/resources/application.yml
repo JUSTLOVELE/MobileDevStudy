@@ -1,0 +1,21 @@
+config:
+  test: hello
+  test02: world02
+spring:
+  application:
+    name: SpringBootResearch
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+    username: root
+    password: 12345678
+    dbcp2:
+      min-idle: 3
+      initial-size: 3
+      max-total: 20
+      max-wait-millis: 333
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true

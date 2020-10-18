@@ -1,0 +1,4 @@
+create table teacher (
+	op_id varchar(64) PRIMARY KEY,
+	teacher_name varchar(64)
+);
