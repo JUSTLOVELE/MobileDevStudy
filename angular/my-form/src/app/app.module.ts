@@ -8,6 +8,7 @@ import {HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
 import { Logger } from './logger.service';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
     FormComponent,
     SearchComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
