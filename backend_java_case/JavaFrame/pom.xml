@@ -12,6 +12,7 @@
     <module>Java11</module>
     <module>ActiveMQ</module>
       <module>CurrentFrame</module>
+      <module>HttpFrame</module>
   </modules>
   <dependencies>
 

@@ -60,8 +60,10 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+				<artifactId>SpringResearch</artifactId>
+				<groupId>com.ex</groupId>
 				<configuration>
 					<mainClass>com.ex.OAuth2App</mainClass>
 				</configuration>
