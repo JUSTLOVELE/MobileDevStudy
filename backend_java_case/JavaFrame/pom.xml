@@ -13,6 +13,7 @@
     <module>ActiveMQ</module>
       <module>CurrentFrame</module>
       <module>HttpFrame</module>
+      <module>CxfFrame</module>
   </modules>
   <dependencies>
 
