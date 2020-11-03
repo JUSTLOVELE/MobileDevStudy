@@ -13,6 +13,8 @@ object StreamWordCount {
   def main(args: Array[String]): Unit = {
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
+    //线程数就是cpu的核心数
+    //env.setParallelism(4)
     //接收一个socket文本流
     val inputDataStream: DataStream[String] = env.socketTextStream("localhost", 7777)
     //进行转化处理统计
