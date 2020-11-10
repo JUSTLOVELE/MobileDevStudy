@@ -45,7 +45,9 @@ public class LockCase04 {
             System.out.println(" signalAll时间为" + System.currentTimeMillis()
                     + " ThreadName = " + Thread.currentThread().getName());
 
-            condition.signalAll();
+            //如果不是唤醒全部则是唤醒第一个await的线程
+            condition.signal();
+            //condition.signalAll();
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
