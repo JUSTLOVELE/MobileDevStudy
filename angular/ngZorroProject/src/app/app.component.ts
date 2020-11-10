@@ -21,20 +21,20 @@ export class AppComponent {
     title: "loopMenu2",
     icon: "form",
     secMenu:[{
-      routerLink: "/menus",
+      routerLink: "/menus2",
       menuName: "menu_2_1"
     },{
-      routerLink: "/menus",
+      routerLink: "/menus3",
       menuName: "menu_2_2"
     }]
   },{
     title: "loopMenu3",
     icon: "form",
     secMenu:[{
-      routerLink: "/menus",
+      routerLink: "/menus4",
       menuName: "menu_3_1"
     },{
-      routerLink: "/menus",
+      routerLink: "/menus5",
       menuName: "menu_3_2"
     }]
   }
