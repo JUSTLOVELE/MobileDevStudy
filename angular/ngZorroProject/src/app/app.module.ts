@@ -14,6 +14,8 @@ import { zh_CN } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { CommonModule } from '@angular/common';
+import {NzSpaceModule} from 'ng-zorro-antd/space';
 
 registerLocaleData(zh);
 
@@ -30,7 +32,9 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzTableModule
+    NzTableModule,
+    CommonModule,
+    NzSpaceModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent],

@@ -1,22 +1,137 @@
- <nz-table #basicTable [nzData]="listOfData">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Address</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of basicTable.data">
-        <td>{{ data.name }}</td>
-        <td>{{ data.age }}</td>
-        <td>{{ data.address }}</td>
-        <td>
-          <a>Action 一 {{ data.name }}</a>
-          <nz-divider nzType="vertical"></nz-divider>
-          <a>Delete</a>
-        </td>
-      </tr>
-    </tbody>
-  </nz-table> 
+<form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+  <div nz-row [nzGutter]="16">
+    <div nz-col [nzSpan]="6" *ngFor="let control of controlArray" [hidden]="!control.show">
+      <nz-form-item>
+        <nz-form-label [nzFor]="'field' + control.index">Field {{ control.index }}</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" [formControlName]="'field' + control.index"
+            [attr.id]="'field' + control.index" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <div nz-row>
+    <div nz-col [nzSpan]="24" class="search-area">
+      <button nz-button [nzType]="'primary'">Search</button>
+      <button nz-button (click)="resetForm()">Clear</button>
+      <a class="collapse" (click)="toggleCollapse()">
+        Collapse
+        <i nz-icon [nzType]="isCollapse ? 'down' : 'up'"></i>
+      </a>
+    </div>
+  </div>
+</form>
+
+<div style="height: 20px;"></div>
+<form nz-form class="ant-advanced-search-form">
+  <div nz-row [nzGutter]="16">
+
+    <div nz-col nzSpan="6">
+      <nz-form-item>
+        <nz-form-label>条件01</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="6">
+      <nz-form-item>
+        <nz-form-label>条件01</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="6">
+      <nz-form-item>
+        <nz-form-label>条件01</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="6">
+      <nz-form-item>
+        <nz-form-label>条件01</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <div nz-row>
+    <div nz-col [nzSpan]="24" class="search-area">
+      <button nz-button [nzType]="'primary'">Search</button>
+      <button nz-button (click)="resetForm()">Clear</button>
+    </div>
+  </div>
+</form>
+
+<div style="height: 20px;"></div>
+<form nz-form class="ant-advanced-search-form">
+  <div nz-row [nzGutter]="16">
+
+    <div nz-col nzSpan="6">
+      <nz-form-item>
+        <nz-form-label>条件01</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="6">
+      <nz-form-item>
+        <nz-form-label>条件01</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="6">
+      <nz-form-item>
+        <nz-form-label>条件01</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="6">
+      <nz-form-item>
+        <button nz-button [nzType]="'primary'">Search</button>
+      </nz-form-item>
+    </div>
+  </div>
+</form>
+
+<div style="height: 10px;"></div>
+
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.age }}</td>
+      <td>{{ data.address }}</td>
+      <td>
+        <a>Action 一 {{ data.name }}</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

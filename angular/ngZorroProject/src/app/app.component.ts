@@ -12,7 +12,7 @@ export class AppComponent {
     icon: "Dashboard",
     secMenu:[{
       routerLink: "/welcome",
-      menuName: "welcome1"
+      menuName: "表格查询1"
     },{
       routerLink: "/menus",
       menuName: "menus1"
