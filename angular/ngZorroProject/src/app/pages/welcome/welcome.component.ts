@@ -18,6 +18,8 @@ interface Person {
 
 export class WelcomeComponent implements OnInit {
 
+  pageIndex = 1
+  pageSize = 3
   listOfData: Person[] = [
     {
       key: '1',
@@ -52,6 +54,17 @@ export class WelcomeComponent implements OnInit {
 
   resetForm(): void {
     this.validateForm.reset();
+  }
+
+  search(): void {
+    console.log("search")
+    this.listOfData = [ ...this.listOfData, {
+      key    : `4`,
+      name   : `Edward King 4`,
+      age    : 29,
+      address: `London, Park Lane no. 4`
+    }];
+    console.log(this.listOfData.length)
   }
 
   constructor(private fb: FormBuilder) {}

@@ -74,6 +74,8 @@
 
 <div style="height: 20px;"></div>
 <form nz-form class="ant-advanced-search-form">
+  <!-- 栅格常常需要和间隔进行配合，你可以使用 nz-row 的 nzGutter 属性，我们推荐使用 (16+8n)px 作为栅格间隔。(n 是自然数)
+如果要支持响应式，可以写成 { xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }。 -->
   <div nz-row [nzGutter]="16">
 
     <div nz-col nzSpan="6">
@@ -87,7 +89,7 @@
 
     <div nz-col nzSpan="6">
       <nz-form-item>
-        <nz-form-label>条件01</nz-form-label>
+        <nz-form-label>条件02</nz-form-label>
         <nz-form-control>
           <input nz-input placeholder="placeholder" />
         </nz-form-control>
@@ -96,7 +98,7 @@
 
     <div nz-col nzSpan="6">
       <nz-form-item>
-        <nz-form-label>条件01</nz-form-label>
+        <nz-form-label>条件03</nz-form-label>
         <nz-form-control>
           <input nz-input placeholder="placeholder" />
         </nz-form-control>
@@ -105,7 +107,7 @@
 
     <div nz-col nzSpan="6">
       <nz-form-item>
-        <button nz-button [nzType]="'primary'">Search</button>
+        <button nz-button [nzType]="'primary'" (click)="search()">Search</button>
       </nz-form-item>
     </div>
   </div>
@@ -113,7 +115,7 @@
 
 <div style="height: 10px;"></div>
 
-<nz-table #basicTable [nzData]="listOfData">
+<nz-table #basicTable [nzData]="listOfData" [nzPageIndex]="pageIndex" [nzPageSize]="pageSize">
   <thead>
     <tr>
       <th>Name</th>

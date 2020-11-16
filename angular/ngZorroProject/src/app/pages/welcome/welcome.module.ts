@@ -24,6 +24,6 @@ import {NzSpaceModule} from 'ng-zorro-antd/space';
   ],
   declarations: [WelcomeComponent],
   exports: [WelcomeComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class WelcomeModule { }
