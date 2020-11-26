@@ -25,6 +25,8 @@ class MyThreadStop02 extends Thread {
                     System.out.println("停止状态,退出");
                     //break;如果启动break不抛出异常,那么for循环外的代码其实还是会被执行到的,并没有退出线程
                     throw new InterruptedException();
+                    //这里配合return也可以达到退出线程的效果
+                    //return ;
                 }
                 System.out.println("i=" + i);
             }
