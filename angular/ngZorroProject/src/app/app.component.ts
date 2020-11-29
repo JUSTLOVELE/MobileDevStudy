@@ -15,7 +15,7 @@ export class AppComponent {
       menuName: "表格查询1"
     },{
       routerLink: "/menus",
-      menuName: "menus1"
+      menuName: "表格查询2"
     }]
   },{
     title: "loopMenu2",
