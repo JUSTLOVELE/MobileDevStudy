@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>case01</title>
 </head>
@@ -10,9 +9,12 @@
     <ul>
         <li v-for="item in movies">{{item}}</li>
     </ul>
-
+    <h1>当前计数:{{counter}}</h1>
+    <button v-on:click="counter++">+</button>
+    <button v-on:click="counter--">-</button>
+    <button v-on:click="add">+</button>
+    <button v-on:click="sub">-</button>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
 
@@ -20,10 +22,18 @@
         el: '#app',
         data: {
             message: "hello word",
-            movies: ['海贼王', '火影忍者', '圣枪修女', '大剑']
-        }
+            movies: ['海贼王', '火影忍者', '圣枪修女', '大剑'],
+            counter: 0
+        },
+        methods: {
+            add: function() {
+               this.counter++
+            },
+            sub: function() {
+                this.counter--;
+            }
+        },
     })
 </script>
-
 </body>
 </html>
