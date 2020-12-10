@@ -13,7 +13,8 @@ object WordCount {
     //创建一个执行环境
     val env: ExecutionEnvironment = ExecutionEnvironment.getExecutionEnvironment
     //从文件中读取数据
-    val inputPath: String = "C:\\develop\\github\\MobileDevStudy\\backend_java_case\\BigData\\FlinkTutorial\\src\\main\\resources\\hello.txt"
+    val inputPath = "/Users/yangzuliang/Documents/develop/github/MobileDevStudy/backend_java_case/BigData/FlinkTutorial/src/main/resources/hello.txt"
+    //val inputPath: String = "C:\\develop\\github\\MobileDevStudy\\backend_java_case\\BigData\\FlinkTutorial\\src\\main\\resources\\hello.txt"
     val inputDataSet: DataSet[String] = env.readTextFile(inputPath)
     //对数据进行转换处理统计,先分词,再按照word进行分组,最后进行聚合统计
     val resultDataSet: DataSet[(String, Int)] = inputDataSet
