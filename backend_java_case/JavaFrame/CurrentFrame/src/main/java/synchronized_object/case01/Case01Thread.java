@@ -1,4 +1,4 @@
-package synchronized_object;
+package synchronized_object.case01;
 
 class MyObject {
 
