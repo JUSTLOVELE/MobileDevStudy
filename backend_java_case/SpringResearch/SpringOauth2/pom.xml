@@ -21,10 +21,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
 
@@ -57,18 +53,4 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-<!--				<groupId>org.springframework.boot</groupId>-->
-<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-				<artifactId>SpringResearch</artifactId>
-				<groupId>com.ex</groupId>
-				<configuration>
-					<mainClass>com.ex.OAuth2App</mainClass>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>

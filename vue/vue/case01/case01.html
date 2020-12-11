@@ -16,7 +16,12 @@
     <button v-on:click="sub">-</button>
     <h1 v-html="url"></h1>
     <h2 v-text="message"></h2>
+    <h2 v-bind:class="{active: isActive, line:isLine}">动态决定变量</h2>
+    <button v-on:click="btnClick">点击变换</button> <br/>
+    <a v-bind:href="ahref">百度一下</a>
     <h2 v-pre>{{不用框架解析}}</h2>
+    <!-- 或者用v-bind就变为绑定变量-->
+    <img :src="imgURL" alt="">
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
@@ -27,7 +32,11 @@
             message: "hello word",
             movies: ['海贼王', '火影忍者', '圣枪修女', '大剑'],
             counter: 0,
-            url: '<a href="https://www.baidu.com">百度一下</a>'
+            url: '<a href="https://www.baidu.com">百度一下</a>',
+            ahref: "https://www.baidu.com",
+            isActive: true,
+            isLine: true,
+            imgURL: 'https://img12.360buyimg.com/seckillcms/s280x280_jfs/t1/150750/4/9773/195909/5fcf56feEbb769fa2/f40280e1b9f1cb18.jpg.webp'
         },
         methods: {
             add: function() {
@@ -35,6 +44,9 @@
             },
             sub: function() {
                 this.counter--;
+            },
+            btnClick: function() {
+                this.isActive = !this.isActive
             }
         },
     })
