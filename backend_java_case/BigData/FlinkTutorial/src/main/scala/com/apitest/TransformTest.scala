@@ -44,9 +44,7 @@ object TransformTest {
     )
 
     input.keyBy("word").print()
-
     dataStream.keyBy("id").min("temp").print()
-
     env.execute("transform test")
 
 
