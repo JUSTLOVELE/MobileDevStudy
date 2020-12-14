@@ -1,5 +1,6 @@
 package com.apitest
 
+import org.apache.flink.api.common.functions.ReduceFunction
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
 
 case class SensorReading_02(var id: String, var time: String, var temp: Double) {
@@ -43,10 +44,22 @@ object TransformTest {
       new WordWithCount("world", 2)// Case Class Data Set
     )
 
-    input.keyBy("word").print()
-    dataStream.keyBy("id").min("temp").print()
+   // input.keyBy("word").print()
+   // dataStream.keyBy("id").min("temp").print()
+    //下面展示reduce function
+    dataStream
+      .keyBy("id")
+      .reduce((curState, newData)=>SensorReading_02(curState.id, newData.time, curState.temp.min(newData.temp))).print()
+   //下面使用MyReduceFunction来代替上面的代码
     env.execute("transform test")
+    dataStream
+      .keyBy("id")
+      .reduce(new MyReduceFunction()).print()
 
 
   }
+}
+
+class MyReduceFunction extends ReduceFunction[SensorReading_02] {
+  override def reduce(t: SensorReading_02, t1: SensorReading_02): SensorReading_02 = SensorReading_02(t.id, t1.time, t.temp.min(t1.temp))
 }
