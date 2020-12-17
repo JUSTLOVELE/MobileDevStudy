@@ -15,6 +15,7 @@
       <module>HttpFrame</module>
       <module>CxfFrame</module>
       <module>DesignPattern</module>
+      <module>ExcelFrame</module>
   </modules>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
