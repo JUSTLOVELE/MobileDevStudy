@@ -15,12 +15,13 @@ import org.apache.cxf.staxutils.StaxUtils;
  * @Copyright: Copyright (c) 2017 HYKJ All Rights Reserved
  * @history:
  */
-public class CDATAOutInterceptor {
+public class CDATAOutInterceptor extends AbstractPhaseInterceptor<Message>{
 
     public CDATAOutInterceptor() {
         super(Phase.WRITE);
     }
 
+    @Override
     public void handleMessage(Message message) {
         message.put("disable.outputstream.optimization", Boolean.TRUE);
         XMLStreamWriter writer = StaxUtils.createXMLStreamWriter(message.getContent(OutputStream.class));
