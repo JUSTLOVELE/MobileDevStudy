@@ -1,0 +1,39 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans" 
+  xmlns:c="http://www.springframework.org/schema/c"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+     http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.0.xsd">
+     
+     <bean id="audience" class="com.spring.ch_04.study_03.Audience"></bean>
+     <bean id="movie" class="com.spring.ch_04.study_03.Movie" ></bean>
+     
+     <aop:config>
+       <aop:aspect ref="audience">
+       
+       <aop:pointcut expression="execution(** com.spring.ch_04.study_03.Performance.perform(..))" id="performance"/>
+       <!-- 前置通知 -->
+        <aop:before method="silenceCellPhones"
+        pointcut-ref="performance"/>
+       
+       <aop:before method="takeSeats"
+        pointcut="execution(** com.spring.ch_04.study_03.Performance.perform(..))"/>
+        <!-- 返回通知 -->
+        <aop:after-returning method="applause"
+        pointcut="execution(** com.spring.ch_04.study_03.Performance.perform(..))"/>
+        <!-- 异常通知 -->
+        <aop:after-throwing method="demandRefund"
+        pointcut="execution(** com.spring.ch_04.study_03.Performance.perform(..))"/>
+       </aop:aspect>
+     </aop:config>
+   
+</beans>

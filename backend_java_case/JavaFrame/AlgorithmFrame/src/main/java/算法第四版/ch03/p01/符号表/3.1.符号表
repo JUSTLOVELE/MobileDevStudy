@@ -1,0 +1,27 @@
+符号表最主要的目的就是将一个键和一个值联系起来,用例能够将一个键值对插入符号表并希望再之后能够从符号表的所有键值对中按照键直接找到相对应的值
+API :
+ ST():创建一张符号表
+ void put(Key key, Value val)
+ Value get(Key key)
+ void delete(Key key)
+ boolean contains(Key key)
+ boolean isEmpty()
+ int size()
+ Iterable<Key> keys()
+ 
+ 有序符号表:
+ 典型的应用程序中,键都是Comparable的对象,因此可以用a.compareTo(b)来比较a和b两个键,我们可以认为符号表
+ 都会保持键的有序并大大扩展它的API,根据键的相对位置定义更多实用的操作
+ API(包括以上):
+  Key min();最小键
+  Key max();最大键
+  Key floor(Key key) :小于等于key的最大键
+  Key ceiling(Key key): 大于等于key的最小键
+  int rank(Key key)：小于key的键的数量
+  Key select(int k):排名为k的键
+  void deleteMin() : 删除最小的键
+  void deleteMax():删除最大键
+  int size(key lo, key hi):[lo..hi]之间键的数量
+  Iterable<Key> keys(key lo, key hi) : [lo..hi]之间的所有键,已排序
+ 
+ 

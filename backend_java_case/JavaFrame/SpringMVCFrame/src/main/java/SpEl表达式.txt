@@ -1,0 +1,12 @@
+ SpEl表达式要放到#{...}之中,注意,属性占位符要放到${...}之中
+ #{1}:表示计算结果就是数字1
+ #{T(System).currenTimeMills()}:计算表达式的那一刻当前时间的毫秒数,T()表达式会将java.lang.System视为Java中对应的类型,、
+因此可以调用其static修饰的currentTimeMills()方法
+ #{sgtPeppers.artist}:可以引用其他的bean或其他bean的属性
+  还可以通过systemProperties对象引用系统属性:#{systemProperties['disc.title']}
+  c:_0="#{sig.title}",是指第一个参数的值为sig.title(sig为bean)
+  也可以调用方法:#{sig.getTitle()},也可以改为大写输出#{sig.getTitle().toUpperCase()}
+  #{sig.getTitle()?.toUpperCase()}:问好表示确保左边的值不为null才会执行右边的内容
+  T(java.lang.Math): T()运算符的结果会是一个Class对象,代表了java.lang.Math,如果需要的话,甚至可以装配到一个Class类型的bean属性中
+  ex: T(java.lang.Math).random();
+  ex:#{2*T(java.lang.Math).PI*circle.radius} : 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context">
+  <!-- 因为没有明确给出ID,所以这个bean将会根据全限定类名来进行命名,它的id是: com.spring.ch_02.study_03.SgtPeppers#0,其中#0是一个计数的形式-->
+ <!--  <bean class="com.spring.ch_02.study_03.SgtPeppers" /> -->
+  <bean id="sgtPeppers" class="com.spring.ch_02.study_03.SgtPeppers" />
+ 
+</beans>

@@ -16,6 +16,14 @@
       <module>CxfFrame</module>
       <module>DesignPattern</module>
       <module>ExcelFrame</module>
+      <module>SpringAnnocationFrame</module>
+    <module>SpringMVCFrame</module>
+    <module>ZookeeperFrame</module>
+    <module>ShiroFrame</module>
+    <module>CamelFrame</module>
+    <module>NettyFrame</module>
+    <module>IO_Time_Jdom_XML_ZIP_Frame</module>
+    <module>AlgorithmFrame</module>
   </modules>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>

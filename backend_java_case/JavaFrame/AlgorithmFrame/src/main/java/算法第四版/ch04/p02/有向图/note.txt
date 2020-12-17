@@ -1,0 +1,20 @@
+  在有向图中边是单向的:每条边所连接的两个顶点都是一个有序对,它们邻接性是单向的
+  例如:  应用           顶点            边
+                 食物链         物种         捕食关系
+def:一幅有方向性的图(或有向图)是由一组顶点和一组有方向的边组成的,每条有方向的边都连接着有序的一对顶点
+
+拓扑排序:给定一幅有向图,将所有顶点排序,使得所有的有向边均从排在前面的元素指向排在后面的元素
+                 
+单点和多点的可达性               DirectedDFS 
+单点有向路径                           DepthFirstDirectedPaths
+单点最短有向路径                   BreadthFirstDirectedPaths
+有向环检测                               DirectedCycyle
+深度优先的顶点排序               DepthFirstOrder
+优先级限制下的调度问题       Topological
+拓扑排序                                   Topological
+强连通性                                   KosarajuSCC
+顶点对的可达性                       TransitiveClosure
+
+
+
+

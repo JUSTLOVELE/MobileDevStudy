@@ -1,0 +1,6 @@
+c命名空间要添加XML的顶部声明其模式:xmlns:c="http://www.springframework.org/schema/c"
+ex : c:cd-ref="compactDisc", 属性名以"c:"开头,"-ref"这是一个命名的约定,它会告诉spring这是一个正在装配的是一个bean的引用是compactDisc,而不是字面量compactDisc
+ex : 装配字面量就去掉-ref改为_字面量即可, 
+    例如: public BlankDisc(String title){this.title = title},
+      c:_title="#{'dsdsd'}",是指BlankDisc类的title属性值为dsdsd,注意,这里的title属性不能是私有
+      c:_0="#{sig.title}",是指第一个参数的值为sig.title(sig为bean)

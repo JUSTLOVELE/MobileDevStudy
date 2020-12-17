@@ -1,0 +1,20 @@
+@Component : 加上这个注解的类就是要放入bean工厂,被Spring扫描的,也可以取自己的期望值@Component("youLikeName")
+@ContextConfiguration : 举个例子:@ContextConfiguration(classes=CDPlayerConfig.class)需要在CDPlayerConfig中加载配置
+@ComponentScan : 如果没有其他配置会扫描和配置类相同的包,
+     如果要扫描多个包:@ComponentScan(basePackages={"study_01", "study_01"})
+     也可以直接指定class:@ComponentScan(basePackageClasses={CDPlayer.class, DVDPlayer.class})
+@Configuration:代表这个类是个配置类,可以跟@ComponentScan一起使用
+
+@Conditional,设置给@Conditional的类可以是任意实现了Condition接口的类型,@Conditional(MagicExistsCondition.class)
+@Autowired : 自动装配,如果没有的话就是会抛异常,可以设置它的required属性为false
+@Bean : 把返回的对象加入springBean工厂,注意,在spring实例化类的时候,在方法体上如果有这个注解就会被调用了
+@Primary:表达最喜欢的方案,可以和@Component或@Bean结合使用,再接口由多个实现类出现歧义的时候带有这个注解的会优先被使用,但是如果标识了两个就无法工作了
+@Qualifier:是使用限定符的主要方式,可以和@Autowired和@Inject协同使用,在注入的时候指定想要注入进去的是哪个bean
+@Scope:Singleton:在整个应用中,只创建bean的一个实例(默认)
+       Prototype:每次注入或者通过Spring应用上下文获取的时候,都会创建一个新的bean
+       Session:在web应用中,为每个会话创建一个bean实例
+       Request:在Web应用中,为每个请求创建一个bean实例
+       
+@PropertySource("classpath:/com/spring/ch_03/study_03/app.properties") 引入配置文件:ExpressiveConfig.java
+@EnableAspectJAutoProxy:启用AspectJ自动代理
+@Aspect:定义切面
