@@ -3,6 +3,13 @@
 <head>
     <title>case01</title>
 </head>
+<style>
+    .title {
+        font-size:50px;
+        color: red;
+    }
+
+</style>
 <body>
 <div id="app">
     <h1>{{message}}</h1>
@@ -20,6 +27,16 @@
     <button v-on:click="btnClick">点击变换</button> <br/>
     <a v-bind:href="ahref">百度一下</a>
     <h2 v-pre>{{不用框架解析}}</h2>
+    <h2 :style="{fontSize: finalSize}">接下来是for循环</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName02}}</h2>
+    <ul>
+        <li v-for="(m, index) in movies">
+            {{index}} {{m}}
+        </li>
+    </ul>
+
+    
     <!-- 或者用v-bind就变为绑定变量-->
     <img :src="imgURL" alt="">
 </div>
@@ -36,7 +53,26 @@
             ahref: "https://www.baidu.com",
             isActive: true,
             isLine: true,
+            finalSize: '100px',
+            firstName: 'yang',
+            lastName: 'zl',
             imgURL: 'https://img12.360buyimg.com/seckillcms/s280x280_jfs/t1/150750/4/9773/195909/5fcf56feEbb769fa2/f40280e1b9f1cb18.jpg.webp'
+        },
+        //计算属性是有缓存的,放这里效率高,而method是没有缓存的
+        computed: {
+            //fullName本质是下面fullName02的get函数
+            fullName: function() {
+                return this.firstName + ' ' + this.lastName
+            },
+            //通常我们不用写set,若将其删除就是一个只读属性
+            fullName02: {
+                set: function(newValue){
+
+                },
+                get: function() {
+                    return "abcdedf";
+                }
+            }
         },
         methods: {
             add: function() {
