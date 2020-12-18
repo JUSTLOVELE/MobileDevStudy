@@ -122,7 +122,8 @@
 		<module>SpringBootResearch</module>
 		<module>SpringOauth2</module>
 		<module>SpringBatch</module>
-	</modules>
+        <module>SpringSessionRedis</module>
+    </modules>
 	
 	  <!--第三方maven私服-->
     <repositories>
