@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 public class Movie implements Performance{
 
 	public void perform() {
-		System.out.println("ÇÐµã1....");
+		System.out.println("åˆ‡ç‚¹1....");
 	}
 
 	@Override
 	public void perform_v2() {
 		// TODO Auto-generated method stub
-		System.out.println("ÇÐµã2....");
+		System.out.println("åˆ‡ç‚¹2....");
 	}
 
 }

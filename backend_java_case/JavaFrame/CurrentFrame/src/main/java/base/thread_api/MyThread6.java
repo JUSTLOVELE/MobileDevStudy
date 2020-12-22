@@ -39,7 +39,7 @@ public class MyThread6 extends Thread {
 			myThread6.setPriority(10);
 			myThread6.start();
 			
-			com.thread.MyThread6_2 myThread6_2 = new com.thread.MyThread6_2();
+			MyThread6_2 myThread6_2 = new MyThread6_2();
 			myThread6_2.setPriority(1);
 			myThread6_2.start();
 		}

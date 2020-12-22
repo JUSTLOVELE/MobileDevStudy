@@ -9,6 +9,6 @@ public class ThreadA extends Thread{
     }
 
     public void run(){
-        service.methodA();
+        service.printA();
     }
 }

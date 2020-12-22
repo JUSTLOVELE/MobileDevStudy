@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
- * @EnableAspectJAutoProxy ÆôÓÃAspectJ×Ô¶¯´úÀí
- *   ²»¹ÜÊÇÊ¹ÓÃJavaConfig»¹ÊÇXML,AspectJ×Ô¶¯´úÀí¶¼»áÎªÊ¹ÓÃ@Aspect×¢½âµÄbean´´½¨Ò»¸ö´úÀí,Õâ¸ö´úÀí
- * »áÎ§ÈÆ×ÅËùÓÐ¸ÃÇÐÃæµÄÇÐµãËøÆ¥ÅäµÄbean.ÔÚÕâÖÖÇé¿öÏÂ,½«»áÎªAopConfig bean ´´½¨Ò»¸ö´úÀí,AudienceÀàÖÐµÄ
- * Í¨Öª·½·¨½«»áÔÚperform()µ÷ÓÃÇ°ºóÖ´ÐÐ
- *   ÎÒÃÇÐèÒª¼Ç×¡:SpringµÄAspectJ×Ô¶¯´úÀí½ö½öÊ¹ÓÃ@AspectJ×÷Îª´´½¨ÇÐÃæµÄÖ¸µ¼,ÇÐÃæÒÀÈ»ÊÇ»ùÓÚ´úÀíµÄ,±¾ÖÊÉÏ
- *ËüÒÀÈ»ÊÇSpring»ùÓÚ´úÀíµÄÇÐÃæ,ÒòÎªÕâÒâÎ¶×Å¾¡¹ÜÊ¹ÓÃµÄÊÇ@AspectJ×¢½â,µ«ÎÒÃÇÈÔÈ»ÏÞÓÚ´úÀí·½·¨µÄµ÷ÓÃ,Èç¹ûÏëÀûÓÃ
- *AspectJµÄËùÓÐÄÜÁ¦,ÎÒÃÇ±ØÐëÔÚÔËÐÐÊ±Ê¹ÓÃAspectJ²¢ÇÒ²»ÒÀÀµSpringÀ´´´½¨»ùÓÚ´úÀíµÄÇÐÃæ
- *   
+ * @EnableAspectJAutoProxy å¯ç”¨AspectJè‡ªåŠ¨ä»£ç†
+ *   ä¸ç®¡æ˜¯ä½¿ç”¨JavaConfigè¿˜æ˜¯XML,AspectJè‡ªåŠ¨ä»£ç†éƒ½ä¼šä¸ºä½¿ç”¨@Aspectæ³¨è§£çš„beanåˆ›å»ºä¸€ä¸ªä»£ç†,è¿™ä¸ªä»£ç†
+ * ä¼šå›´ç»•ç€æ‰€æœ‰è¯¥åˆ‡é¢çš„åˆ‡ç‚¹é”åŒ¹é…çš„bean.åœ¨è¿™ç§æƒ…å†µä¸‹,å°†ä¼šä¸ºAopConfig bean åˆ›å»ºä¸€ä¸ªä»£ç†,Audienceç±»ä¸­çš„
+ * é€šçŸ¥æ–¹æ³•å°†ä¼šåœ¨perform()è°ƒç”¨å‰åŽæ‰§è¡Œ
+ *   æˆ‘ä»¬éœ€è¦è®°ä½:Springçš„AspectJè‡ªåŠ¨ä»£ç†ä»…ä»…ä½¿ç”¨@AspectJä½œä¸ºåˆ›å»ºåˆ‡é¢çš„æŒ‡å¯¼,åˆ‡é¢ä¾ç„¶æ˜¯åŸºäºŽä»£ç†çš„,æœ¬è´¨ä¸Š
+ *å®ƒä¾ç„¶æ˜¯SpringåŸºäºŽä»£ç†çš„åˆ‡é¢,å› ä¸ºè¿™æ„å‘³ç€å°½ç®¡ä½¿ç”¨çš„æ˜¯@AspectJæ³¨è§£,ä½†æˆ‘ä»¬ä»ç„¶é™äºŽä»£ç†æ–¹æ³•çš„è°ƒç”¨,å¦‚æžœæƒ³åˆ©ç”¨
+ *AspectJçš„æ‰€æœ‰èƒ½åŠ›,æˆ‘ä»¬å¿…é¡»åœ¨è¿è¡Œæ—¶ä½¿ç”¨AspectJå¹¶ä¸”ä¸ä¾èµ–Springæ¥åˆ›å»ºåŸºäºŽä»£ç†çš„åˆ‡é¢
+ *
  * @author Administrator
  *
  */

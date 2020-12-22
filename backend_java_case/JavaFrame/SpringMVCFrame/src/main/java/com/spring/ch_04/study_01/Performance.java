@@ -1,15 +1,15 @@
 package com.spring.ch_04.study_01;
 
 /**
- * ±àĞ´PerformanceµÄperform()·½·¨:
+ * ç¼–å†™Performanceçš„perform()æ–¹æ³•:
  * execution(*com.spring.ch_04.study_01.Performance.perform(..))
- * ±í´ïÊ½ÒÔ*ºÅ¿ªÊ¼±íÃ÷ÎÒÃÇ²»¹ØĞÄ·µ»ØÖµµÄÀàĞÍ,È»ºóÖ¸¶¨È«ÏŞ¶¨ÀàÃûºÍ·½·¨Ãû,¶ÔÓÚ²ÎÊıÁĞ±í,ÎÒÃÇÊ¹ÓÃÁ½¸öµãºÅ(..)±íÃ÷ÇĞµãÒªÑ¡ÔñÈÎÒâµÄperform()·½·¨,ÎŞÂÛÈë²ÎÊÇÊ²Ã´
- *   ÏÖÔÚ¼ÙÉèÎÒÃÇĞèÒªÅäÖÃµÄÇĞµã½öÆ¥Åäconcert°ü,ÔÚ´Ë³¡¾°ÏÂ,¿ÉÒÔÊ¹ÓÃwithin()Ö¸Ê¾Æ÷À´ÏŞÖÆÆ¥Åä:
- *   and ´úÌæ &&,or´úÌæ||
+ * è¡¨è¾¾å¼ä»¥*å·å¼€å§‹è¡¨æ˜æˆ‘ä»¬ä¸å…³å¿ƒè¿”å›å€¼çš„ç±»å‹,ç„¶åæŒ‡å®šå…¨é™å®šç±»åå’Œæ–¹æ³•å,å¯¹äºå‚æ•°åˆ—è¡¨,æˆ‘ä»¬ä½¿ç”¨ä¸¤ä¸ªç‚¹å·(..)è¡¨æ˜åˆ‡ç‚¹è¦é€‰æ‹©ä»»æ„çš„perform()æ–¹æ³•,æ— è®ºå…¥å‚æ˜¯ä»€ä¹ˆ
+ *   ç°åœ¨å‡è®¾æˆ‘ä»¬éœ€è¦é…ç½®çš„åˆ‡ç‚¹ä»…åŒ¹é…concertåŒ…,åœ¨æ­¤åœºæ™¯ä¸‹,å¯ä»¥ä½¿ç”¨within()æŒ‡ç¤ºå™¨æ¥é™åˆ¶åŒ¹é…:
+ *   and ä»£æ›¿ &&,orä»£æ›¿||
  *   execution(*com.spring.ch_04.study_01.Performance.perform(..)) and within(concert.*)
- * Spring»¹ÒıÈëÁËÒ»¸öĞÂµÄbean()Ö¸Ê¾Æ÷,ËüÔÊĞíÎÒÃÇÔÚÇĞµã±í´ïÊ½ÖĞÊ¹ÓÃbeanµÄIDÀ´±êÊ¶bean
+ * Springè¿˜å¼•å…¥äº†ä¸€ä¸ªæ–°çš„bean()æŒ‡ç¤ºå™¨,å®ƒå…è®¸æˆ‘ä»¬åœ¨åˆ‡ç‚¹è¡¨è¾¾å¼ä¸­ä½¿ç”¨beançš„IDæ¥æ ‡è¯†bean
  *   execution(* com.spring.ch_04.study_01.Performance.perform(..)) and bean('woodstock')
- * »¹¿ÉÒÔ×ö·Ç²Ù×÷:Îª³ıÁËÌØ¶¨IDÒÔÍâµÄÆäËûbeanÓ¦ÓÃÍ¨Öª,ÒÔÏÂ³¡¾°²»»á±»±àÖ¯µ½ËùÓĞID²»ÎªwoodstockµÄbeanÖĞ:
+ * è¿˜å¯ä»¥åšéæ“ä½œ:ä¸ºé™¤äº†ç‰¹å®šIDä»¥å¤–çš„å…¶ä»–beanåº”ç”¨é€šçŸ¥,ä»¥ä¸‹åœºæ™¯ä¸ä¼šè¢«ç¼–ç»‡åˆ°æ‰€æœ‰IDä¸ä¸ºwoodstockçš„beanä¸­:
  *   execution(* com.spring.ch_04.study_01.Performance.perform(..)) and !bean('woodstock')
  * @author Administrator
  *
@@ -17,6 +17,6 @@ package com.spring.ch_04.study_01;
 public interface Performance {
 
 	public void perform();
-	
+
 	public void perform_v2();
 }

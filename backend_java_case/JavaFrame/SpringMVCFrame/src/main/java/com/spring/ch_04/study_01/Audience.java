@@ -10,22 +10,22 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.Bean;
 
 /**
- * Audience:¶¨ÒåÁËÎÒÃÇĞèÒªµÄÇĞÃæ
- * @Before : Ä¿±ê·½·¨µ÷ÓÃÖ®Ç°Ö´ĞĞ
- * @Around : Í¨Öª·½·¨»á½«Ä¿±ê·½·¨·â×°ÆğÀ´(»·ÈÆÍ¨Öª)
- * @After  : Í¨Öª·½·¨»áÄ¿±ê·½·¨·µ»Ø»òÅ×³öÒì³£ºóµ÷ÓÃ
- * @AfterReturning : Í¨Öª·½·¨»áÔÚÄ¿±ê·½·¨·µ»Øºóµ÷ÓÃ
- * @AfterThrowing : Í¨Öª·½·¨»áÔÚÄ¿±êÅ×³öÒì³£ºóµ÷ÓÃ
- * 
- * @Pointcut:ÄÜ¹»ÔÚÒ»¸ö@AspectJÇĞÃæÄÚ¶¨Òå¿ÉÖØÓÃµÄÇĞµã
- * 
- * 
+ * Audience:å®šä¹‰äº†æˆ‘ä»¬éœ€è¦çš„åˆ‡é¢
+ * @Before : ç›®æ ‡æ–¹æ³•è°ƒç”¨ä¹‹å‰æ‰§è¡Œ
+ * @Around : é€šçŸ¥æ–¹æ³•ä¼šå°†ç›®æ ‡æ–¹æ³•å°è£…èµ·æ¥(ç¯ç»•é€šçŸ¥)
+ * @After  : é€šçŸ¥æ–¹æ³•ä¼šç›®æ ‡æ–¹æ³•è¿”å›æˆ–æŠ›å‡ºå¼‚å¸¸åè°ƒç”¨
+ * @AfterReturning : é€šçŸ¥æ–¹æ³•ä¼šåœ¨ç›®æ ‡æ–¹æ³•è¿”å›åè°ƒç”¨
+ * @AfterThrowing : é€šçŸ¥æ–¹æ³•ä¼šåœ¨ç›®æ ‡æŠ›å‡ºå¼‚å¸¸åè°ƒç”¨
+ *
+ * @Pointcut:èƒ½å¤Ÿåœ¨ä¸€ä¸ª@AspectJåˆ‡é¢å†…å®šä¹‰å¯é‡ç”¨çš„åˆ‡ç‚¹
+ *
+ *
  * @author Administrator
  *
  */
 @Aspect
 public class Audience {
-	
+
 	@Bean
 	public Audience audience(){
 		return new Audience();
@@ -33,35 +33,35 @@ public class Audience {
 	//https://www.cnblogs.com/guzhou-ing/p/6445159.html
 	@Pointcut("execution(** com.spring.ch_04.study_01.Performance.*(..))")
 	public void performance(){}
-	
-	//¿ÉÒÔ½«±í´ïÊ½»»ÎªÇĞµã
+
+	//å¯ä»¥å°†è¡¨è¾¾å¼æ¢ä¸ºåˆ‡ç‚¹
 	//@Before("execution(** com.spring.ch_04.study_01.Performance.perform(..))")
 	@Before("performance()")
 	public void silenceCellPhones(){
 		System.out.println("silencing cell phones");
 	}
-	
+
 	@Before("execution(** com.spring.ch_04.study_01.Performance.perform(..))")
 	public void takeSeats(){
 		System.out.println("Taking seats");
 	}
-	
+
 	@AfterReturning("execution(** com.spring.ch_04.study_01.Performance.perform(..))")
 	public void applause(){
 		System.out.println("CLAP CLAP CLAP");
 	}
-	
+
 	@AfterThrowing("execution(** com.spring.ch_04.study_01.Performance.perform(..))")
 	public void demandRefund(){
 		System.out.println("Demanding a refund");
 	}
-	
+
 	/**
-	 * ProceedingJoinPoint jpÕâ¸ö²ÎÊıÊÇ±ØĞëÒªÓĞ
-	 * ÒòÎªÒªÔÚÍ¨ÖªÖĞÍ¨¹ıËüÀ´µ÷ÓÃ±»Í¨ÖªµÄ·½·¨,Í¨Öª·½·¨ÖĞ¿ÉÒÔ×öÈÎºÎµÄÊÂÇé,
-	 * µ±Òª½«¿ØÖÆÈ¨½»¸ø±»Í¨Öª·½·¨Ê±,ËüĞèÒªµ÷ÓÃjp.proceed()·½·¨
-	 * Èç¹û²»µ÷ÓÃµÄ»°,ÄãµÄÍ¨ÖªÊµ¼ÊÉÏ»á×èÈû¶Ô±»Í¨Öª·½µÄµ÷ÓÃ,
-	 * µ±È»ÕâÑù×öÒ²ÊÇÓĞÓ¦ÓÃ³¡¾°µÄ:ÊµÏÖÖØÊÔÂß¼­,Ò²¾ÍÊÇÔÚ±»Í¨Öª·½·¨Ê§°Üºó½øĞĞÖØ¸´³¢ÊÔ
+	 * ProceedingJoinPoint jpè¿™ä¸ªå‚æ•°æ˜¯å¿…é¡»è¦æœ‰
+	 * å› ä¸ºè¦åœ¨é€šçŸ¥ä¸­é€šè¿‡å®ƒæ¥è°ƒç”¨è¢«é€šçŸ¥çš„æ–¹æ³•,é€šçŸ¥æ–¹æ³•ä¸­å¯ä»¥åšä»»ä½•çš„äº‹æƒ…,
+	 * å½“è¦å°†æ§åˆ¶æƒäº¤ç»™è¢«é€šçŸ¥æ–¹æ³•æ—¶,å®ƒéœ€è¦è°ƒç”¨jp.proceed()æ–¹æ³•
+	 * å¦‚æœä¸è°ƒç”¨çš„è¯,ä½ çš„é€šçŸ¥å®é™…ä¸Šä¼šé˜»å¡å¯¹è¢«é€šçŸ¥æ–¹çš„è°ƒç”¨,
+	 * å½“ç„¶è¿™æ ·åšä¹Ÿæ˜¯æœ‰åº”ç”¨åœºæ™¯çš„:å®ç°é‡è¯•é€»è¾‘,ä¹Ÿå°±æ˜¯åœ¨è¢«é€šçŸ¥æ–¹æ³•å¤±è´¥åè¿›è¡Œé‡å¤å°è¯•
 	 * @param jp
 	 */
 	@Around("performance()")
