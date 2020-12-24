@@ -36,6 +36,17 @@
         </li>
     </ul>
 
+    <h1>@click.prevent阻止默认事件</h1>
+    <form action="action">
+        <input type="submit" value = "提交" @click.prevent="submitClick" />
+    </form>
+    <!-- 监听所有按键 -->
+    <input type="text" @keyup="keyup" >
+    <!-- 监听回车 -->
+    <input type="text" @keyup.enter="keyup" >
+    <button @click.once="doThis" value="只触发一次"></button>
+
+
     
     <!-- 或者用v-bind就变为绑定变量-->
     <img :src="imgURL" alt="">
@@ -83,6 +94,12 @@
             },
             btnClick: function() {
                 this.isActive = !this.isActive
+            },
+            submitClick: function() {
+                console.log("自己的提交点击事件")
+            },
+            keyUp() {
+                console.log("keyUp");
             }
         },
     })
