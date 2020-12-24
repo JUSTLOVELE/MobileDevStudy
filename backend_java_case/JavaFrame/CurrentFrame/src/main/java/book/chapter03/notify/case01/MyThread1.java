@@ -14,6 +14,9 @@ public class MyThread1 extends Thread{
         this.lock = lock;
     }
 
+    /**
+     * interrupt遇到wait会报错哦
+     */
     @Override
     public void run() {
 

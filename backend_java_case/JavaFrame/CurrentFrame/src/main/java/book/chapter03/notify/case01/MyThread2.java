@@ -14,6 +14,10 @@ public class MyThread2 extends Thread {
         this.lock = lock;
     }
 
+    /**
+     * notify唤醒的线程如果被sync锁住,也是要等同步代码块顺序执行完的
+     * 调用notify每次只随机通知一个线程进行唤醒,唤醒全部用notifyall
+     */
     @Override
     public void run() {
 
