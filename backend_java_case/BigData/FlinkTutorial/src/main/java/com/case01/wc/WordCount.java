@@ -1,5 +1,6 @@
 package com.case01.wc;
 
+import com.util.PathUtil;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
@@ -13,28 +14,16 @@ import java.util.Properties;
 /**
  * @author yangzl 2020.12.24
  * @version 1.00.00
- * @Description:
+ * @Description:批处理word count,直接抓取一批处理即可
  * @history:
  */
-//批处理word count
 public class WordCount {
 
     public static void main(String[] args) {
-
-        Properties prop = System.getProperties();
-        String os = prop.getProperty("os.name");
-        System.out.println(os);
         //创建执行环境
         ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
         //从文件中读取数据
-        String inputPath = null;
-
-        if(os.startsWith("Windows")) {
-            inputPath = "C:\\develop\\github\\MobileDevStudy\\backend_java_case\\BigData\\FlinkTutorial\\src\\main\\resources\\hello.txt";
-        }else{
-
-        }
-
+        String inputPath = PathUtil.getHelloTxtInputPath();
         DataSet<String> inputDataSet = env.readTextFile(inputPath);
         //对数据集进行处理,按空格分词展开,转换成(word,1)二元组进行统计
         DataSet<Tuple2<String, Integer>> result = inputDataSet.flatMap(new MyflatMapper())
