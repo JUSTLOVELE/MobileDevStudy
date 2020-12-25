@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 //@RequestMapping("helloAction")
 public class HelloAction {
 
+	@GetMapping("/aspectTestCase02")
+	public String aspectTestCase02() {
+		return "hello2";
+	}
+
+
 	@GetMapping("/aspectTestCase01")
 	public String aspectTestCase01() {
 		return "hello";
