@@ -1,15 +1,29 @@
 package com.example.action;
 
+import com.example.model.FormModel;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 //@Controller
 //@RequestMapping("helloAction")
 public class HelloAction {
+
+	@GetMapping("/formTest")
+	public String formTest(@Valid FormModel formModel, Errors errors) {
+
+		if(errors.hasErrors()) {
+			return "haserror";
+		}
+
+		return "formTest";
+	}
 
 	@GetMapping("/aspectTestCase02")
 	public String aspectTestCase02() {
