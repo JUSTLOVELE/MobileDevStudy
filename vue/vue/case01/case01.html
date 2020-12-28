@@ -41,12 +41,28 @@
         <input type="submit" value = "提交" @click.prevent="submitClick" />
     </form>
     <!-- 监听所有按键 -->
-    <input type="text" @keyup="keyup" >
+   <!--  <input type="text" @keyup="keyup" > -->
     <!-- 监听回车 -->
     <input type="text" @keyup.enter="keyup" >
     <button @click.once="doThis" value="只触发一次"></button>
 
+    <h2 v-if="isShow">
+        isShow为true
+    </h2>
+    <h2 v-else>
+        isShow为false
+    </h2>
+    <h2>计算属性: {{result}}</h2>
 
+    <span v-if="isShow">
+        <label for="username">用户账户</label>
+        <input type="text" id="username" placeholder="用户账户">
+    </span>
+    <span v-else>
+        <label for="email">用户邮箱</label>
+        <input type="text" id="email" placeholder="用户账户">
+    </span>
+    <button v-on:click="tabClick" >切换类型</button>
     
     <!-- 或者用v-bind就变为绑定变量-->
     <img :src="imgURL" alt="">
@@ -67,6 +83,8 @@
             finalSize: '100px',
             firstName: 'yang',
             lastName: 'zl',
+            isShow: true,
+            score: 99,
             imgURL: 'https://img12.360buyimg.com/seckillcms/s280x280_jfs/t1/150750/4/9773/195909/5fcf56feEbb769fa2/f40280e1b9f1cb18.jpg.webp'
         },
         //计算属性是有缓存的,放这里效率高,而method是没有缓存的
@@ -83,6 +101,15 @@
                 get: function() {
                     return "abcdedf";
                 }
+            },
+            result() {
+                if(this.score >= 90 ) {
+                    return "优秀";
+                }else if(this.score >= 80) {
+                    return "良好";
+                }else{
+                    return "一般";
+                }
             }
         },
         methods: {
@@ -98,8 +125,12 @@
             submitClick: function() {
                 console.log("自己的提交点击事件")
             },
-            keyUp() {
+            keyUp:function() {
                 console.log("keyUp");
+            },
+            tabClick: function() {
+                console.log("tabClick")
+                this.isShow = !this.isShow;
             }
         },
     })
