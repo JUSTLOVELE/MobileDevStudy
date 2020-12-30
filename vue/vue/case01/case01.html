@@ -63,7 +63,6 @@
         <input type="text" id="email" placeholder="用户账户">
     </span>
     <button v-on:click="tabClick" >切换类型</button>
-    
     <!-- 或者用v-bind就变为绑定变量-->
     <img :src="imgURL" alt="">
 </div>
@@ -85,6 +84,7 @@
             lastName: 'zl',
             isShow: true,
             score: 99,
+            name:['111', '222', '333', '444'],
             imgURL: 'https://img12.360buyimg.com/seckillcms/s280x280_jfs/t1/150750/4/9773/195909/5fcf56feEbb769fa2/f40280e1b9f1cb18.jpg.webp'
         },
         //计算属性是有缓存的,放这里效率高,而method是没有缓存的
