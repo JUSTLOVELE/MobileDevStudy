@@ -123,6 +123,7 @@
 		<module>SpringOauth2</module>
 		<module>SpringBatch</module>
         <module>SpringSessionRedis</module>
+        <module>SpringHATEOAS</module>
     </modules>
 	
 	  <!--第三方maven私服-->

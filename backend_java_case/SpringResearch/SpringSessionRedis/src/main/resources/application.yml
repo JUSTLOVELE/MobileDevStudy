@@ -19,5 +19,8 @@ spring:
   session:
     store-type: redis
     redis:
+      #用于存储在redis中key的命名空间
       flush-mode: on_save
+      #session更新策略，有ON_SAVE、IMMEDIATE，前者是在调用#SessionRepository#save(org.springframework.session.Session)时，在response commit前刷新缓存，
+      #后者是只要有任何更新就会刷新缓存
       namespace: 'spring:session'
