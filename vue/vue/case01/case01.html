@@ -9,12 +9,18 @@
         color: red;
     }
 
+    .active {
+        color: red;
+    }
+
 </style>
 <body>
 <div id="app">
     <h1>{{message}}</h1>
     <ul>
-        <li v-for="item in movies">{{item}}</li>
+        <li v-for="(item, index) in movies" :class="{active: currentIndex === index}" @click="liClick(index)">
+           {{index}}-{{item}}
+        </li>
     </ul>
     <h1>当前计数:{{counter}}</h1>
     <button v-on:click="counter++">+</button>
@@ -74,6 +80,7 @@
         data: {
             message: "hello word",
             movies: ['海贼王', '火影忍者', '圣枪修女', '大剑'],
+            currentIndex: 0,
             counter: 0,
             url: '<a href="https://www.baidu.com">百度一下</a>',
             ahref: "https://www.baidu.com",
@@ -131,6 +138,9 @@
             tabClick: function() {
                 console.log("tabClick")
                 this.isShow = !this.isShow;
+            },
+            liClick: function(index) {
+                this.currentIndex = index
             }
         },
     })
