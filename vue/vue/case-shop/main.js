@@ -44,6 +44,22 @@ const app = new Vue({
                 alert("库存不能小于0")
             }
            
+        },
+        removeHandle(index) {
+            this.books.splice(index)
+        }
+    },
+    computed: {
+        totalPrice() {
+
+            let total = 0;
+
+            for(let i=0; i<this.books.length; i++) {
+
+                total += this.books[i].price * this.books[i].count
+            }
+
+            return total;
         }
     }
 })
