@@ -51,7 +51,6 @@
     <!-- 监听回车 -->
     <input type="text" @keyup.enter="keyup" >
     <button @click.once="doThis" value="只触发一次"></button>
-
     <h2 v-if="isShow">
         isShow为true
     </h2>
@@ -59,6 +58,29 @@
         isShow为false
     </h2>
     <h2>计算属性: {{result}}</h2>
+
+    <select name="fruit" v-model="fruit">
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="榴莲">榴莲</option>
+        <option value="葡萄">葡萄</option>
+    </select>
+    <h2>您选择的水果是:{{fruit}}</h2>
+
+    <select name="fruits" v-model="fruits" multiple>
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="榴莲">榴莲</option>
+        <option value="葡萄">葡萄</option>
+    </select>
+    <h2>您选择的水果是:{{fruits}}</h2>
+
+    <label v-for="item in originHobbies" :for="item">
+        <input type="checkbox" :value="item" :id="item" v-model="hobbies">{{item}}
+    </label>
+    <h2>您的爱好是{{hobbies}}</h2>
+    
+    <br/>
 
     <span v-if="isShow">
         <label for="username">用户账户</label>
@@ -91,6 +113,10 @@
             lastName: 'zl',
             isShow: true,
             score: 99,
+            fruits: "",
+            fruit: [],
+            hobbies: [], //多选框
+            originHobbies:['篮球', '足球', '乒乓球', '羽毛球', '台球'],
             name:['111', '222', '333', '444'],
             imgURL: 'https://img12.360buyimg.com/seckillcms/s280x280_jfs/t1/150750/4/9773/195909/5fcf56feEbb769fa2/f40280e1b9f1cb18.jpg.webp'
         },
