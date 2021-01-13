@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>case02</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>双向模型延迟加载,失去焦点或回车才能更新</h2>
+        <input type="text" v-model.lazy="message">
+        <h3>{{message}}</h3>
+        <!-- 因为age是string所以相当于框架帮人转成了string -->
+        <input type="number" v-model="age">
+        <h3>{{age}}-{{typeof age}}</h3>
+
+        <input type="text" v-model.trim="name">
+        <h3>{{name}}</h3>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: "hello word",
+            age: '',
+            name: ''
+        },
+        //计算属性是有缓存的,放这里效率高,而method是没有缓存的
+        computed: {
+        },
+        methods: {
+
+        },
+    })
+</script>
+</body>
+</html>
