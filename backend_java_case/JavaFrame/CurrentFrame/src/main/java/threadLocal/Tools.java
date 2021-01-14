@@ -10,4 +10,5 @@ public class Tools {
 
     public static ThreadLocal t1 = new ThreadLocal();
 
+    public static  InheritableThreadLocalExt i1 = new InheritableThreadLocalExt();
 }
