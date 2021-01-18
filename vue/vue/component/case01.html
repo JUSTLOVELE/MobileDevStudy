@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>case02</title>
+</head>
+
+<body>
+    <div id="app">
+       <my-cpn></my-cpn>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    const cpnc = Vue.extend({
+        template: `
+        <div>
+            <h2>我是标题</h2>
+            <h3>内容111</h3>
+        </div>
+        `
+    })
+
+    Vue.component('my-cpn', cpnc)
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+        },
+        //计算属性是有缓存的,放这里效率高,而method是没有缓存的
+        computed: {
+        },
+        methods: {
+
+        },
+    })
+</script>
+</body>
+</html>
