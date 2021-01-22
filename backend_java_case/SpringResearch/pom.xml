@@ -124,6 +124,7 @@
 		<module>SpringBatch</module>
         <module>SpringSessionRedis</module>
         <module>SpringHATEOAS</module>
+        <module>SpringWebSocket</module>
     </modules>
 	
 	  <!--第三方maven私服-->
