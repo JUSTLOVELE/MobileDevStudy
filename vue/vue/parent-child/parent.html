@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>case02</title>
+</head>
+<body>
+    <div id="app">
+       <cpn 
+            v-bind:cmovies="movies" 
+            :cmessage="message"
+            :cdata="cdata"
+            ></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <p>{{cmovies}}</p>
+            <h2>{{cmessage}}</h2>
+            <h2>{{cdata}}</h2>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //父传子:props
+    const cpn = {
+        template: `#cpn`,
+        //props: ['cmovies', 'cmessage'],
+        props: {
+            cmessage: {
+                type: String,
+                default: 'aaaaa'
+            },
+            //对象和数组默认值必须是一个函数
+            cmovies: {
+                type: Array,
+                default() {
+                    return []
+                }
+            },
+            cdata: {
+                type: String,
+                default: 'data default'
+            }
+        },
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+
+        }
+    }
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: "你好啊",
+            movies: ['海王', '海贼王', '火影忍者']
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>
