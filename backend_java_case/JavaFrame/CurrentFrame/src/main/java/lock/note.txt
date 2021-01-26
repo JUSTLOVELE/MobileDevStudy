@@ -3,6 +3,10 @@ LockCase03:使用Condition实现等待/通知
 LockCase04:
 LockCase05:一对一交替打印
 LockCase06:公平锁,非公平锁
+LockCase11: ReentrantReadWriteLock读读共享
+LockCase12: ReentrantReadWriteLock读写互斥
+
+
 
 锁LOCK分为公平锁和非公平锁,公平锁表示线程获取锁的顺序是按照线程枷锁的顺序来分配的(FIFO),非公平锁就是一种获取锁的抢占机制,是随机获得锁的
 getHoldCount():查询当前线程保持此锁定的个数,也就是调用lock()的次数
