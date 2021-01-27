@@ -5,6 +5,7 @@ LockCase05:一对一交替打印
 LockCase06:公平锁,非公平锁
 LockCase11: ReentrantReadWriteLock读读共享
 LockCase12: ReentrantReadWriteLock读写互斥
+LockCase13: ReentrantReadWriteLock写读互斥
 
 
 

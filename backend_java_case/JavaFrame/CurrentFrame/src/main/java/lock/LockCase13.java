@@ -3,12 +3,13 @@ package lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author yangzl 2020.01.28
+ * @author yangzl 2021.01.27
  * @version 1.00.00
  * @Description:
  * @history:
  */
-public class LockCase12 {
+public class LockCase13 {
+
 
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
@@ -43,43 +44,43 @@ public class LockCase12 {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        LockCase12 service = new LockCase12();
-        Case12ThreadA a = new Case12ThreadA(service);
-        a.setName("A");
-        a.start();
-        Case12ThreadB b = new Case12ThreadB(service);
+        LockCase13 service = new LockCase13();
+        Case13ThreadB b = new Case13ThreadB(service);
         b.setName("B");
         b.start();
+        Thread.sleep(1000);
+        Case13ThreadA a = new Case13ThreadA(service);
+        a.setName("A");
+        a.start();
     }
 }
 
+class Case13ThreadA extends Thread {
 
-class Case12ThreadA extends Thread {
+    private LockCase13 lockCase13;
 
-    private LockCase12 lockCase12;
-
-    public Case12ThreadA(LockCase12 service) {
-        this.lockCase12 = service;
+    public Case13ThreadA(LockCase13 service) {
+        this.lockCase13 = service;
     }
 
     @Override
     public void run() {
-        lockCase12.read();
+        lockCase13.read();
     }
 }
 
-class Case12ThreadB extends Thread {
+class Case13ThreadB extends Thread {
 
-    private LockCase12 lockCase12;
+    private LockCase13 lockCase13;
 
-    public Case12ThreadB(LockCase12 service) {
-        this.lockCase12 = service;
+    public Case13ThreadB(LockCase13 service) {
+        this.lockCase13 = service;
     }
 
     @Override
     public void run() {
-        lockCase12.read();
+        lockCase13.read();
     }
 }
