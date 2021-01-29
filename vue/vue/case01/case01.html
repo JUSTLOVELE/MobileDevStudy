@@ -145,6 +145,21 @@
                 }
             }
         },
+        created: function() {
+            //声明周期函数
+            console.log('create')
+        },
+
+        beforeCreate: function() {
+            //声明周期函数
+            console.log("boforeCreated")
+        },
+        beforeDestroy() {
+            console.log("beforeDestroy")
+        },
+        destroyed() {
+            console.log("destroyed")
+        },
         methods: {
             add: function() {
                this.counter++
