@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>case02</title>
+</head>
+<body>
+    <div id="app">
+       <cpn @item-click="cpnClick"></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+           <button @click="btnClick(item)" v-for="item in categories">{{item.name}}</button>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //父传子:props
+    const cpn = {
+        template: `#cpn`,
+        data() {
+            return {
+                categories:[
+                    {id: 'a', name: '热门推荐'},
+                    {id: 'b', name: '手机数码'},
+                    {id: 'c', name: '电脑办公'},
+                    {id: 'd', name: '家具家电'}
+                ]
+            }
+        },
+        methods: {
+            btnClick(item) {
+                this.$emit('item-click', item);
+            }
+        }
+    }
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: "你好啊",
+            movies: ['海王', '海贼王', '火影忍者']
+        },
+        components: {
+            cpn
+        },
+        methods: {
+            cpnClick(item) {
+                console.log(item)
+            }
+        }
+    })
+</script>
+</body>
+</html>
