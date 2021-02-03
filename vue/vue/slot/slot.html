@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>case02</title>
+</head>
+<body>
+    <div id="app">
+       <cpn>
+            <span slot="center">我是替换的</span>
+       </cpn>
+    </div>
+    <template id="cpn">
+        <div>
+           <slot name="left"><span>左边</span></slot>
+           <slot name="center"><span>中间</span></slot>
+           <slot name="right"><span>右边</span></slot>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //父传子:props
+    const cpn = {
+        template: `#cpn`,
+        //props: ['cmovies', 'cmessage'],
+        props: {
+
+        },
+        data() {
+            return {
+                name: 'children name'
+            }
+        },
+        methods: {
+        }
+    }
+    const app = new Vue({
+        el: '#app',
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>
