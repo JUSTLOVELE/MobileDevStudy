@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>case02</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <child>
+            <template slot-scope="props"><!--定义一个插槽，该插槽必须放在template标签内-->
+                <li>{{props.value}}</li><--!定义使用渲染方式-->
+            </template>
+        </child>
+        <child>
+            <template slot-scope="props">
+                <h1>{{props.value}}</h1><!--定义不同的渲染方式-->
+            </template>
+        </child>
+    </div>
+    <script>
+        Vue.component('child',{
+            data: function(){
+                return {
+                    list:[1,2,3,4]
+                }
+            },
+            template: `<div>
+                            <ul>
+                                <slot v-for="value in list" :value=value>//使用slot占位
+                                </slot>
+                            </ul>
+                        </div>`
+        })
+        var vm=new Vue({
+            el: '#root'
+        })
+    </script>
+</body>
+</html>
