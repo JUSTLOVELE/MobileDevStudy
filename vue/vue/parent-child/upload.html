@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>case02</title>
+</head>
+<body>
+    <div id="app">
+       <cpn ref="test" ></cpn>
+       <button @click="btnClick">点我打印子组件</button>
+
+    </div>
+    <template id="cpn">
+        <div>
+            子组件
+            <button @click="pClick">点我打印父组件</button>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //父传子:props
+    const cpn = {
+        template: `#cpn`,
+        //props: ['cmovies', 'cmessage'],
+        props: {
+
+        },
+        data() {
+            return {
+                name: 'children name'
+            }
+        },
+        methods: {
+            pClick() {
+                console.log(this.$parent)
+            }
+        }
+    }
+    const app = new Vue({
+        el: '#app',
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+            btnClick() {
+                console.log(this.$children);
+                console.log(this.$refs.test.name);
+            }
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>
