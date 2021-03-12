@@ -5,6 +5,7 @@ import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrdernessTimestampExtractor;
 
 /**
  * @author yangzl 2021.03.08
@@ -26,7 +27,15 @@ public class WindowTest3_EventWindow {
         DataStream<SensorReading> dataStream = inputstream.map(line -> {
             String[] fields = line.split(",");
             return new SensorReading(fields[0], new Long(fields[1]), new Double(fields[2]));
-        });
+        }).assignTimestampsAndWatermarks(new BoundedOutOfOrdernessTimestampExtractor<SensorReading>() {
+            @Override
+            public long extractTimestamp(SensorReading sensorReading) {
+                return sensorReading.getTimestamp();
+            }
+        })
+
+
+                ;
 
         env.execute();
     }
