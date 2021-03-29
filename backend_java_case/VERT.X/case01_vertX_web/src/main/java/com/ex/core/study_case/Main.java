@@ -1,4 +1,4 @@
-package com.ex.case01;
+package com.ex.core.study_case;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
