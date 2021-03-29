@@ -1,9 +1,12 @@
 package com.apitest.window;
 
 import com.apitest.source.com.apitest.beans.SensorReading;
+import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
+import org.apache.flink.streaming.api.datastream.KeyedStream;
+import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.timestamps.AscendingTimestampExtractor;
 import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrdernessTimestampExtractor;
@@ -45,6 +48,13 @@ public class WindowTest3_EventWindow {
             }
         })
                 ;
+
+        //基于事件时间的开窗聚合，统计15秒内温度的最小值
+        SingleOutputStreamOperator<SensorReading> minTempStream = dataStream.keyBy("id")
+                .timeWindow(Time.seconds(15))
+                .minBy("temperature");
+        minTempStream.print("minTemp");
+
         env.execute();
     }
 }
