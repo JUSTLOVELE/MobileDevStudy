@@ -22,8 +22,8 @@ public class StateTest03_KeyedStateApplicationCase {
             String[] fields = line.split(",");
             return new SensorReading(fields[0], new Long(fields[1]), new Double(fields[2]));
         });
-        SingleOutputStreamOperator<Tuple3<String, Double, Double>> resultStream = dataStream.keyBy("id")
-                .flatMap(new TempChangeWarning(10.0));
+        dataStream.keyBy("id")
+                .flatMap(new TempChangeWarning(10.0))
 
         resultStream.print();
         env.execute();
