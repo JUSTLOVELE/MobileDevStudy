@@ -23,9 +23,9 @@ public class StateTest03_KeyedStateApplicationCase {
             return new SensorReading(fields[0], new Long(fields[1]), new Double(fields[2]));
         });
         dataStream.keyBy("id")
-                .flatMap(new TempChangeWarning(10.0))
+                .flatMap(new TempChangeWarning(10.0));
 
-        resultStream.print();
+        dataStream.print();
         env.execute();
     }
 
