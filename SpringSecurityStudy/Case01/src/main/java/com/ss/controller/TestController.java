@@ -16,4 +16,9 @@ public class TestController {
     public String add() {
         return "hello security";
     }
+
+    @GetMapping(value = "/test/index", produces = "application/json; charset=utf-8")
+    public String index() {
+        return "hello index";
+    }
 }
