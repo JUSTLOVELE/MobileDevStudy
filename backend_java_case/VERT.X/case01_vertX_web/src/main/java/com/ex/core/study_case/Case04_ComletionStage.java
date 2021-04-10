@@ -6,6 +6,9 @@ import io.vertx.core.Vertx;
 import java.util.UUID;
 import java.util.concurrent.CompletionStage;
 
+/**
+ * 阶段任务，在一个future完成后执行
+ */
 public class Case04_ComletionStage {
 
     public static void main(String[] args) {
@@ -16,12 +19,12 @@ public class Case04_ComletionStage {
             System.out.println("f1");
             f.complete("f1 result");
         });
-        CompletionStage<String> completionStage = future.toCompletionStage().whenComplete((ip, err) -> {
+        CompletionStage<String> completionStage = future.toCompletionStage().whenComplete((result, err) -> {
             if (err != null) {
                 System.out.println("Could not resolve vertx.io");
                 err.printStackTrace();
             } else {
-                System.out.println("vertx.io => " + ip);
+                System.out.println("vertx.io => " + result);
             }
         });
 
