@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
+    @GetMapping(value = "/test/logout", produces = "application/json; charset=utf-8")
+    public String testLogout() {
+        return "hello logout";
+    }
+
     @GetMapping(value = "/test/add", produces = "application/json; charset=utf-8")
     public String add() {
         return "hello security";
