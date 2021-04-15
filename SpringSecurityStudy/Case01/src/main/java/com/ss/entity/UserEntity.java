@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * @Description:
  * @history:
  */
-@TableName("public_user_tbl")
+@TableName("user_tbl")
 public class UserEntity {
 
     private String opId;
