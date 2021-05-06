@@ -131,7 +131,8 @@
         <module>SpringHATEOAS</module>
         <module>SpringWebSocket</module>
 		<module>WorkUtils</module>
-	</modules>
+        <module>ES</module>
+    </modules>
 	
 	  <!--第三方maven私服-->
     <repositories>
