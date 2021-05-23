@@ -16,14 +16,14 @@ public class Config {
 		return builder.build();
 	}
 	
-	@Bean
-	public CommandLineRunner run(RestTemplate restTemplate) throws Exception{
-		
-		return args -> {
-			Quote quote = restTemplate.getForObject(
-					"https://gturnquist-quoters.cfapps.io/api/random", 
-					Quote.class);
-			System.out.println(quote.toString());
-		};
-	}
+//	@Bean
+//	public CommandLineRunner run(RestTemplate restTemplate) throws Exception{
+//
+//		return args -> {
+//			Quote quote = restTemplate.getForObject(
+//					"https://gturnquist-quoters.cfapps.io/api/random",
+//					Quote.class);
+//			System.out.println(quote.toString());
+//		};
+//	}
 }
