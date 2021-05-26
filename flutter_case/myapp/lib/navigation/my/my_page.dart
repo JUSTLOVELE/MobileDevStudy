@@ -11,7 +11,7 @@ class _MyPageState extends State<MyPage> {
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('想法'),
+          title: new Text('个人中心'),
           actions: <Widget>[
             new Container()
           ],
