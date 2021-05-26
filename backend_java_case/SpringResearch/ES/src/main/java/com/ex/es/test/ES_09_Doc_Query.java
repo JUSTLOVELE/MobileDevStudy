@@ -1,9 +1,6 @@
 package com.ex.es.test;
 
 import org.apache.http.HttpHost;
-import org.elasticsearch.action.bulk.BulkRequest;
-import org.elasticsearch.action.bulk.BulkResponse;
-import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
@@ -40,8 +37,6 @@ public class ES_09_Doc_Query {
         for(SearchHit hit: hits) {
             System.out.println(hit.getSourceAsString());
         }
-
-
 
         esClient.close();;
     }
