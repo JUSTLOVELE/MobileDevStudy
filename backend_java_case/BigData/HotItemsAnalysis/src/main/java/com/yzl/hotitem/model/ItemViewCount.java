@@ -1,4 +1,4 @@
-package com.yzl.hotitem;
+package com.yzl.hotitem.model;
 
 /**
  * @author yangzl 2021.06.09

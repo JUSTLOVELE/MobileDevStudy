@@ -1,4 +1,4 @@
-package com.yzl.hotitem;
+package com.yzl.hotitem.model;
 
 /**
  * @author yangzl 2021.06.09
@@ -12,7 +12,7 @@ public class UserBehavior {
 
     private Long itemId;
 
-    private Long categoryId;
+    private Integer categoryId;
 
     private String behavior;
 
@@ -33,7 +33,7 @@ public class UserBehavior {
                 '}';
     }
 
-    public UserBehavior(Long userId, Long itemId, Long categoryId, String behavior, Long timestamp) {
+    public UserBehavior(Long userId, Long itemId, Integer categoryId, String behavior, Long timestamp) {
         this.userId = userId;
         this.itemId = itemId;
         this.categoryId = categoryId;
@@ -57,11 +57,11 @@ public class UserBehavior {
         this.itemId = itemId;
     }
 
-    public Long getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
