@@ -1,0 +1,55 @@
+config:
+  test: hello
+  test02: world02
+spring:
+  application:
+    name: SpringBootResearch
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2b8
+    username: root
+    password: 12345678
+    dbcp2:
+      min-idle: 3
+      initial-size: 3
+      max-total: 20
+      max-wait-millis: 333
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8888
+        port: 8888
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        prefix: ${spring.application.name}      #不填写默认就是项目的应用名
+        server-addr: 127.0.0.1:8848                #指定nacos配置中心地址
+        file-extension: yml                              #指定配置文件后缀名
+        shared-dataids: dev.yml
+        refreshable-dataids: dev.yml
+        #默认为Public命名空间,可以省略不写，新建的命名空间，需要使用命名空间ID， 不能使用名称
+        namespace: 3aa13964-0e82-4bfd-b921-1dc689711dd8
+        #指定配置群组 --如果是Public命名空间 则可以省略群组配置
+        #group: DEFAULT_GROUP
+
+
+
+server:
+  port: 8081
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    session:
+      timneout: 3000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

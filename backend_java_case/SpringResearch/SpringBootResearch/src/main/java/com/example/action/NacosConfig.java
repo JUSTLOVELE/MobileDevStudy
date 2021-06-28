@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class NacosConfig {
 
-    @Value("${world:}")
+    @Value("${cnf.message:}")
     private String myname;
 
     /**
