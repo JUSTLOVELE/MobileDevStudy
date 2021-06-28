@@ -3,15 +3,28 @@ package com.yzl.hotitem;
 import com.yzl.hotitem.model.ItemViewCount;
 import com.yzl.hotitem.model.UserBehavior;
 import org.apache.flink.api.common.functions.AggregateFunction;
+import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.api.common.state.ListState;
+import org.apache.flink.api.common.state.ListStateDescriptor;
 import org.apache.flink.api.java.tuple.Tuple;
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.shaded.guava18.com.google.common.collect.Lists;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.streaming.api.functions.timestamps.AscendingTimestampExtractor;
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer09;
 import org.apache.flink.util.Collector;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Properties;
 
 /**
  * @author yangzl 2021.06.10
@@ -30,7 +43,12 @@ public class HotItems {
         //定义时间语义
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
         //2.读取数据创建dataStream
-        DataStream<String> inputStream = env.readTextFile("C:\\develop\\github\\MobileDevStudy\\backend_java_case\\BigData\\HotItemsAnalysis\\src\\main\\resources\\UserBehavior.csv");
+        //DataStream<String> inputStream = env.readTextFile("C:\\develop\\github\\MobileDevStudy\\backend_java_case\\BigData\\HotItemsAnalysis\\src\\main\\resources\\UserBehavior.csv");
+
+        Properties properties = new Properties();
+        properties.setProperty("bootstrap.servers", "localhost:9091");
+        properties.setProperty("group.id", "consumer");
+        DataStream<String> inputStream = env.addSource(new FlinkKafkaConsumer011<String>("hotitems", new SimpleStringSchema(), properties));
         //转换为POJO,分配时间戳和watermark
         DataStream<UserBehavior> dataStream = inputStream.map(line -> {
 
@@ -54,43 +72,102 @@ public class HotItems {
         ).keyBy("itemId") //按商品id分组
         .timeWindow(Time.hours(1), Time.minutes(5)) //开滑窗
         .aggregate(new ItemCountAgg(), new WindowItemCountResult());
-
+        //收集同一窗口的所有商品count数据,排序好输出top n
+        DataStream<String> resultStream = windowAggStream.keyBy("windowEnd")//按照窗口分组
+            .process(new TopNHotItems(5)); //用自定义处理函数排序取前5
+        resultStream.print();
         env.execute("hot items analysis");
     }
 
+    // 实现自定义增量聚合函数
     public static class ItemCountAgg implements AggregateFunction<UserBehavior, Long, Long> {
-
         @Override
         public Long createAccumulator() {
             return 0L;
         }
 
         @Override
-        public Long add(UserBehavior userBehavior, Long aLong) {
-            return aLong+1;
+        public Long add(UserBehavior value, Long accumulator) {
+            return accumulator + 1;
         }
 
         @Override
-        public Long getResult(Long aLong) {
-            return aLong;
+        public Long getResult(Long accumulator) {
+            return accumulator;
         }
 
         @Override
-        public Long merge(Long aLong, Long acc1) {
-            return aLong + acc1;
+        public Long merge(Long a, Long b) {
+            return a + b;
         }
     }
 
-    //自定义全窗口函数
+    // 自定义全窗口函数
     public static class WindowItemCountResult implements WindowFunction<Long, ItemViewCount, Tuple, TimeWindow> {
+        @Override
+        public void apply(Tuple tuple, TimeWindow window, Iterable<Long> input, Collector<ItemViewCount> out) throws Exception {
+            Long itemId = tuple.getField(0);
+            Long windowEnd = window.getEnd();
+            Long count = input.iterator().next();
+            out.collect(new ItemViewCount(itemId, windowEnd, count));
+        }
+    }
+
+    // 实现自定义KeyedProcessFunction
+    public static class TopNHotItems extends KeyedProcessFunction<Tuple, ItemViewCount, String>{
+        // 定义属性，top n的大小
+        private Integer topSize;
+
+        public TopNHotItems(Integer topSize) {
+            this.topSize = topSize;
+        }
+
+        // 定义列表状态，保存当前窗口内所有输出的ItemViewCount
+        ListState<ItemViewCount> itemViewCountListState;
 
         @Override
-        public void apply(Tuple tuple, TimeWindow timeWindow, Iterable<Long> iterable, Collector<ItemViewCount> collector) throws Exception {
+        public void open(Configuration parameters) throws Exception {
+            itemViewCountListState = getRuntimeContext().getListState(new ListStateDescriptor<ItemViewCount>("item-view-count-list", ItemViewCount.class));
+        }
 
-            Long itemId = tuple.getField(0);
-            Long windowEnd = timeWindow.getEnd();
-            Long count = iterable.iterator().next();
-            collector.collect(new ItemViewCount(itemId, windowEnd, count));
+        @Override
+        public void processElement(ItemViewCount value, Context ctx, Collector<String> out) throws Exception {
+            // 每来一条数据，存入List中，并注册定时器
+            itemViewCountListState.add(value);
+            ctx.timerService().registerEventTimeTimer( value.getWindowEnd() + 1 );
+        }
+
+        @Override
+        public void onTimer(long timestamp, OnTimerContext ctx, Collector<String> out) throws Exception {
+            // 定时器触发，当前已收集到所有数据，排序输出
+            ArrayList<ItemViewCount> itemViewCounts = Lists.newArrayList(itemViewCountListState.get().iterator());
+
+            itemViewCounts.sort(new Comparator<ItemViewCount>() {
+                @Override
+                public int compare(ItemViewCount o1, ItemViewCount o2) {
+                    return o2.getCount().intValue() - o1.getCount().intValue();
+                }
+            });
+
+            // 将排名信息格式化成String，方便打印输出
+            StringBuilder resultBuilder = new StringBuilder();
+            resultBuilder.append("===================================\n");
+            resultBuilder.append("\n 窗口结束时间：").append( new Timestamp(timestamp - 1)).append("\n");
+
+            // 遍历列表，取top n输出
+            for( int i = 0; i < Math.min(topSize, itemViewCounts.size()); i++ ){
+                ItemViewCount currentItemViewCount = itemViewCounts.get(i);
+                resultBuilder.append("NO ").append(i+1).append(":")
+                        .append(" 商品ID = ").append(currentItemViewCount.getItemId())
+                        .append(" 热门度 = ").append(currentItemViewCount.getCount())
+                        .append("\n");
+            }
+            resultBuilder.append("===============================\n\n");
+
+            // 控制输出频率
+            Thread.sleep(1000L);
+
+            out.collect(resultBuilder.toString());
         }
     }
 }
