@@ -17,6 +17,19 @@ public class HelloAction {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    //http://localhost:8080/api/test8
+    @GetMapping(value = "/api/test8", produces = "application/json; charset=utf-8")
+    public String test8(HttpServletRequest request) {
+        return request.getSession().getId();
+    }
+
+    //http://localhost:8080/api/test7
+    @GetMapping(value = "/api/test7", produces = "application/json; charset=utf-8")
+    public String test7(HttpServletRequest request) {
+
+        return (String) request.getSession().getAttribute("name");
+    }
+
     @GetMapping("/hello")
     //@RequestMapping("/hello")
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
